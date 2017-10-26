@@ -1,0 +1,469 @@
+Path,Word,Speaker (ID),Length (ms),Root Mean Square Level,Max Level,Phonetic transcription (CMU dictionary),First Phone,First Phone Length (ms)
+voice_F1_absolutely_2.wav,absolutely,F1,905.4,0.108,0.891,AE2 B S AH0 L UW1 T L IY0,AE2,120
+voice_F1_accept_2.wav,accept,F1,539.9,0.159,0.891,AE0 K S EH1 P T,AE0,70
+voice_F1_actually_2.wav,actually,F1,824.3,0.107,0.891,AE1 K CH UW2 AH0 L IY0,AE1,120
+voice_F1_again_2.wav,again,F1,581.2,0.174,0.891,AH0 G EH1 N,AH0,80
+voice_F1_agent_2.wav,agent,F1,748.5,0.144,0.891,EY1 JH AH0 N T,EY1,190
+voice_F1_alive_2.wav,alive,F1,838.3,0.193,0.891,AH0 L AY1 V,AH0,85
+voice_F1_all_2.wav,all,F1,577.9,0.231,0.891,AO1 L,AO1,250
+voice_F1_already_2.wav,already,F1,652.8,0.189,0.891,AO0 L R EH1 D IY0,AO0,130
+voice_F1_appreciate_2.wav,appreciate,F1,853.3,0.149,0.891,AH0 P R IY1 SH IY0 EY2 T,AH0,80
+voice_F1_artist_2.wav,artist,F1,769.9,0.16,0.891,AA1 R T AH0 S T,AA1,170
+voice_F1_aviation_2.wav,aviation,F1,1001,0.223,0.891,EY2 V IY0 EY1 SH AH0 N,EY2,160
+voice_F1_back_2.wav,back,F1,459.1,0.184,0.891,B AE1 K,B,25
+voice_F1_ball_2.wav,ball,F1,652.8,0.237,0.891,B AO1 L,B,65
+voice_F1_believe_2.wav,believe,F1,806.8,0.229,0.891,B IH0 L IY1 V,B,45
+voice_F1_business_2.wav,business,F1,800.6,0.159,0.891,B IH1 Z N AH0 S,B,25
+voice_F1_call_2.wav,call,F1,724.2,0.254,0.891,K AO1 L,K,120
+voice_F1_change_2.wav,change,F1,774.9,0.157,0.891,CH EY1 N JH,CH,105
+voice_F1_check_2.wav,check,F1,426.7,0.1,0.891,CH EH1 K,CH,100
+voice_F1_children_2.wav,children,F1,817.4,0.14,0.891,CH IH1 L D R AH0 N,CH,125
+voice_F1_come_2.wav,come,F1,577.8,0.191,0.891,K AH1 M,K,60
+voice_F1_day_2.wav,day,F1,522.7,0.167,0.891,D EY1,D,60
+voice_F1_dear_2.wav,dear,F1,558.5,0.167,0.891,D IH1 R,D,50
+voice_F1_doctor_2.wav,doctor,F1,550,0.112,0.891,D AA1 K T ER0,D,45
+voice_F1_early_2.wav,early,F1,639.5,0.285,0.891,ER1 L IY0,ER1,210
+voice_F1_earn_2.wav,earn,F1,647.7,0.216,0.891,ER1 N,ER1,220
+voice_F1_eighteen_2.wav,eighteen,F1,733.5,0.12,0.891,EY0 T IY1 N,EY0,130
+voice_F1_email_2.wav,email,F1,668.5,0.248,0.891,IY0 M EY1 L,IY0,180
+voice_F1_employee_2.wav,employee,F1,913,0.243,0.891,EH0 M P L OY1 IY0,EH0,65
+voice_F1_enjoy_2.wav,enjoy,F1,749.6,0.263,0.891,EH2 N JH OY1,EH2,100
+voice_F1_equatorial_2.wav,equatorial,F1,1068,0.164,0.891,IY2 K W AH0 T AO1 R IY0 AH0 L,IY2,120
+voice_F1_even_2.wav,even,F1,579.4,0.21,0.891,IY1 V IH0 N,IY1,165
+voice_F1_ever_2.wav,ever,F1,562.4,0.201,0.891,EH1 V ER0,EH1,105
+voice_F1_father_2.wav,father,F1,674.6,0.218,0.891,F AA1 DH ER0,F,180
+voice_F1_from_2.wav,from,F1,744.2,0.177,0.891,F R AH1 M,F,190
+voice_F1_game_2.wav,game,F1,570.4,0.163,0.891,G EY1 M,G,40
+voice_F1_gendarme_2.wav,gendarme,F1,919.7,0.216,0.891,ZH AA1 N D AA2 R M,ZH,100
+voice_F1_genre_2.wav,genre,F1,720.7,0.24,0.891,ZH AA1 N R AH0,ZH,60
+voice_F1_gentleman_2.wav,gentleman,F1,818.4,0.152,0.891,JH EH1 N T AH0 L M AH0 N,JH,120
+voice_F1_get_1.wav,get,F1,358.6,0.156,0.891,G EH1 T,G,35
+voice_F1_great_2.wav,great,F1,436.5,0.192,0.891,G R EY1 T,G,55
+voice_F1_happened_2.wav,happened,F1,800.8,0.152,0.891,HH AE1 P AH0 N D,HH,150
+voice_F1_have_2.wav,have,F1,654.2,0.153,0.891,HH AE1 V,HH,115
+voice_F1_home_2.wav,home,F1,701.6,0.264,0.891,HH OW1 M,HH,170
+voice_F1_idea_2.wav,idea,F1,669.3,0.154,0.891,AY0 D IY1 AH0,AY0,170
+voice_F1_inside_2.wav,inside,F1,814.5,0.21,0.891,IH2 N S AY1 D,IH2,70
+voice_F1_interesting_2.wav,interesting,F1,919.2,0.211,0.891,IH1 N T AH0 R EH2 S T IH0 NG,IH1,50
+voice_F1_into_2.wav,into,F1,752.6,0.152,0.891,IH1 N T UW0,IH1,85
+voice_F1_island_2.wav,island,F1,659.2,0.183,0.891,AY1 L AH0 N D,AY1,230
+voice_F1_isolation_2.wav,isolation,F1,987.8,0.14,0.891,AY2 S AH0 L EY1 SH AH0 N,AY2,150
+voice_F1_jellyfish_2.wav,jellyfish,F1,905,0.141,0.891,JH EH1 L IY0 F IH2 SH,JH,70
+voice_F1_joie_2.wav,joie,F1,629.8,0.219,0.891,ZH W AA1,ZH,130
+voice_F1_join_2.wav,join,F1,630.3,0.219,0.891,JH OY1 N,JH,60
+voice_F1_just_2.wav,just,F1,548.2,0.123,0.891,JH AH1 S T,JH,70
+voice_F1_kid_2.wav,kid,F1,429,0.193,0.891,K IH1 D,K,70
+voice_F1_like_2.wav,like,F1,516.5,0.187,0.891,L AY1 K,L,120
+voice_F1_listen_2.wav,listen,F1,689.2,0.188,0.891,L IH1 S AH0 N,L,135
+voice_F1_love_2.wav,love,F1,758,0.204,0.891,L AH1 V,L,240
+voice_F1_make_2.wav,make,F1,683.3,0.187,0.891,M EY1 K,M,150
+voice_F1_mother_2.wav,mother,F1,628.8,0.184,0.891,M AH1 DH ER0,M,180
+voice_F1_my_2.wav,my,F1,816.6,0.174,0.891,M AY1,M,200
+voice_F1_nice_2.wav,nice,F1,822,0.144,0.891,N AY1 S,N,210
+voice_F1_no_2.wav,no,F1,771,0.219,0.891,N OW1,N,220
+voice_F1_number_2.wav,number,F1,729.7,0.218,0.891,N AH1 M B ER0,N,190
+voice_F1_october_2.wav,october,F1,775.8,0.173,0.891,AA0 K T OW1 B ER0,AA0,120
+voice_F1_oily_2.wav,oily,F1,755.1,0.214,0.891,OY1 L IY0,OY1,320
+voice_F1_ointment_2.wav,ointment,F1,707.8,0.155,0.891,OY1 N T M AH0 N T,OY1,160
+voice_F1_olympic_2.wav,olympic,F1,758.5,0.194,0.891,OW0 L IH1 M P IH0 K,OW0,80
+voice_F1_one_2.wav,one,F1,713.2,0.22,0.891,W AH1 N,W,250
+voice_F1_oodles_2.wav,oodles,F1,715.9,0.169,0.891,UW1 D AH0 L Z,UW1,190
+voice_F1_oolong_2.wav,oolong,F1,777.9,0.229,0.891,UW1 L AO0 NG,UW1,200
+voice_F1_ooze_2.wav,ooze,F1,711.1,0.191,0.891,UW1 Z,UW1,445
+voice_F1_open_2.wav,open,F1,598.8,0.154,0.891,OW1 P AH0 N,OW1,160
+voice_F1_opportunity_2.wav,opportunity,F1,969.5,0.138,0.891,AA2 P ER0 T UW1 N AH0 T IY0,AA2,110
+voice_F1_organization_2.wav,organization,F1,1074.7,0.185,0.891,AO2 R G AH0 N AH0 Z EY1 SH AH0 N,AO2,125
+voice_F1_other_2.wav,other,F1,510.3,0.167,0.891,AH1 DH ER0,AH1,110
+voice_F1_ourselves_2.wav,ourselves,F1,1000.3,0.148,0.891,AW0 ER0 S EH1 L V Z,AW0,140
+voice_F1_outside_2.wav,outside,F1,718.6,0.151,0.891,AW1 T S AY1 D,AW1,120
+voice_F1_outstanding_2.wav,outstanding,F1,836.7,0.11,0.891,AW2 T S T AE1 N D IH0 NG,AW2,120
+voice_F1_over_2.wav,over,F1,706.7,0.164,0.891,OW1 V ER0,OW1,250
+voice_F1_oysters_2.wav,oysters,F1,813.7,0.174,0.891,OY1 S T ER0 Z,OY1,200
+voice_F1_people_2.wav,people,F1,615.4,0.186,0.891,P IY1 P AH0 L,P,100
+voice_F1_phone_2.wav,phone,F1,701.1,0.183,0.891,F OW1 N,F,190
+voice_F1_please_2.wav,please,F1,786,0.194,0.891,P L IY1 Z,P,90
+voice_F1_probably_2.wav,probably,F1,771.5,0.14,0.891,P R AA1 B AH0 B L IY2,P,70
+voice_F1_reason_2.wav,reason,F1,790.6,0.227,0.891,R IY1 Z AH0 N,R,145
+voice_F1_remember_2.wav,remember,F1,953.1,0.263,0.891,R IH0 M EH1 M B ER0,R,140
+voice_F1_right_2.wav,right,F1,495.8,0.189,0.891,R AY1 T,R,160
+voice_F1_say_2.wav,say,F1,625.8,0.183,0.891,S EY1,S,190
+voice_F1_short_2.wav,short,F1,580,0.179,0.891,SH AO1 R T,SH,210
+voice_F1_show_2.wav,show,F1,767.9,0.167,0.891,SH OW1,SH,225
+voice_F1_some_2.wav,some,F1,681.2,0.109,0.891,S AH1 M,S,220
+voice_F1_something_2.wav,something,F1,793.1,0.114,0.891,S AH1 M TH IH0 NG,S,185
+voice_F1_stop_2.wav,stop,F1,604.7,0.195,0.891,S T AA1 P,S,135
+voice_F1_sure_2.wav,sure,F1,745.9,0.23,0.891,SH UH1 R,SH,230
+voice_F1_thanks_2.wav,thanks,F1,595,0.142,0.891,TH AE1 NG K S,TH,45
+voice_F1_themselves_2.wav,themselves,F1,1044.8,0.144,0.891,DH EH0 M S EH1 L V Z,DH,70
+voice_F1_they_2.wav,they,F1,660.9,0.183,0.891,DH EY1,DH,155
+voice_F1_think_2.wav,think,F1,291.8,0.16,0.891,TH IH1 NG K,TH,35
+voice_F1_this_2.wav,this,F1,730.1,0.213,0.891,DH IH1 S,DH,160
+voice_F1_thousand_2.wav,thousand,F1,875,0.196,0.891,TH AW1 Z AH0 N D,TH,90
+voice_F1_time_2.wav,time,F1,738.4,0.205,0.891,T AY1 M,T,70
+voice_F1_together_2.wav,together,F1,648.9,0.163,0.891,T AH0 G EH1 DH ER0,T,60
+voice_F1_tonight_2.wav,tonight,F1,543.6,0.223,0.891,T AH0 N AY1 T,T,60
+voice_F1_under_2.wav,under,F1,647.4,0.195,0.891,AH1 N D ER0,AH1,60
+voice_F1_up_2.wav,up,F1,285.7,0.193,0.891,AH1 P,AH1,135
+voice_F1_urgent_2.wav,urgent,F1,613.9,0.165,0.891,ER1 JH AH0 N T,ER1,150
+voice_F1_vacation_2.wav,vacation,F1,991.5,0.173,0.891,V EY0 K EY1 SH AH0 N,V,110
+voice_F1_very_2.wav,very,F1,623.9,0.191,0.891,V EH1 R IY0,V,130
+voice_F1_video_2.wav,video,F1,830,0.168,0.891,V IH1 D IY0 OW0,V,190
+voice_F1_wait_2.wav,wait,F1,624.6,0.203,0.891,W EY1 T,W,200
+voice_F1_what_2.wav,what,F1,402.3,0.165,0.891,W AH1 T,W,160
+voice_F1_year_2.wav,year,F1,614.9,0.201,0.891,Y IH1 R,Y,200
+voice_F1_yes_2.wav,yes,F1,595.2,0.166,0.891,Y EH1 S,Y,120
+voice_F1_yourself_2.wav,yourself,F1,848.8,0.121,0.891,Y ER0 S EH1 L F,Y,70
+voice_F1_zebra_2.wav,zebra,F1,712.2,0.205,0.891,Z IY1 B R AH0,Z,190
+voice_F1_zone_2.wav,zone,F1,749.9,0.153,0.891,Z OW1 N,Z,190
+voice_F1_zoo_2.wav,zoo,F1,643.9,0.212,0.891,Z UW1,Z,210
+voice_F2_absolutely_2.wav,absolutely,F2,852.1,0.08,0.891,AE2 B S AH0 L UW1 T L IY0,AE2,110
+voice_F2_accept_2.wav,accept,F2,580,0.125,0.891,AE0 K S EH1 P T,AE0,60
+voice_F2_actually_2.wav,actually,F2,642.1,0.073,0.891,AE1 K CH UW2 AH0 L IY0,AE1,150
+voice_F2_again_2.wav,again,F2,533.3,0.155,0.891,AH0 G EH1 N,AH0,120
+voice_F2_agent_2.wav,agent,F2,635.4,0.128,0.891,EY1 JH AH0 N T,EY1,220
+voice_F2_alive_2.wav,alive,F2,614.5,0.128,0.891,AH0 L AY1 V,AH0,100
+voice_F2_all_2.wav,all,F2,440.1,0.176,0.891,AO1 L,AO1,200
+voice_F2_already_2.wav,already,F2,677.6,0.138,0.891,AO0 L R EH1 D IY0,AO0,120
+voice_F2_appreciate_2.wav,appreciate,F2,859.5,0.116,0.891,AH0 P R IY1 SH IY0 EY2 T,AH0,70
+voice_F2_artist_2.wav,artist,F2,627.8,0.113,0.891,AA1 R T AH0 S T,AA1,100
+voice_F2_aviation_2.wav,aviation,F2,782.9,0.117,0.891,EY2 V IY0 EY1 SH AH0 N,EY2,140
+voice_F2_back_2.wav,back,F2,425.7,0.141,0.891,B AE1 K,B,50
+voice_F2_ball_2.wav,ball,F2,532.9,0.171,0.891,B AO1 L,B,50
+voice_F2_believe_2.wav,believe,F2,669.4,0.148,0.891,B IH0 L IY1 V,B,60
+voice_F2_business_2.wav,business,F2,679.7,0.129,0.891,B IH1 Z N AH0 S,B,60
+voice_F2_call_2.wav,call,F2,513.5,0.172,0.891,K AO1 L,K,110
+voice_F2_change_2.wav,change,F2,714.5,0.114,0.891,CH EY1 N JH,CH,120
+voice_F2_check_2.wav,check,F2,462.5,0.088,0.891,CH EH1 K,CH,100
+voice_F2_children_2.wav,children,F2,633.5,0.153,0.891,CH IH1 L D R AH0 N,CH,90
+voice_F2_come_2.wav,come,F2,460.5,0.134,0.891,K AH1 M,K,80
+voice_F2_day_2.wav,day,F2,465.5,0.135,0.891,D EY1,D,50
+voice_F2_dear_2.wav,dear,F2,454.5,0.175,0.891,D IH1 R,D,50
+voice_F2_doctor_2.wav,doctor,F2,537.6,0.125,0.891,D AA1 K T ER0,D,40
+voice_F2_early_2.wav,early,F2,490.7,0.2,0.891,ER1 L IY0,ER1,200
+voice_F2_earn_2.wav,earn,F2,537.4,0.16,0.891,ER1 N,ER1,200
+voice_F2_eighteen_2.wav,eighteen,F2,534.4,0.124,0.891,EY0 T IY1 N,EY0,130
+voice_F2_email_2.wav,email,F2,617.5,0.206,0.891,IY0 M EY1 L,IY0,120
+voice_F2_employee_2.wav,employee,F2,849.5,0.168,0.891,EH0 M P L OY1 IY0,EH0,70
+voice_F2_enjoy_2.wav,enjoy,F2,768.3,0.154,0.891,EH2 N JH OY1,EH2,120
+voice_F2_equatorial_2.wav,equatorial,F2,916.6,0.192,0.891,IY2 K W AH0 T AO1 R IY0 AH0 L,IY2,80
+voice_F2_even_2.wav,even,F2,571.2,0.162,0.891,IY1 V IH0 N,IY1,170
+voice_F2_ever_2.wav,ever,F2,459.8,0.163,0.891,EH1 V ER0,EH1,170
+voice_F2_father_2.wav,father,F2,541.7,0.139,0.891,F AA1 DH ER0,F,90
+voice_F2_from_2.wav,from,F2,451.7,0.19,0.891,F R AH1 M,F,140
+voice_F2_game_2.wav,game,F2,527,0.172,0.891,G EY1 M,G,80
+voice_F2_gendarme_2.wav,gendarme,F2,733.5,0.151,0.891,ZH AA1 N D AA2 R M,ZH,100
+voice_F2_genre_2.wav,genre,F2,659.8,0.157,0.891,ZH AA1 N R AH0,ZH,150
+voice_F2_gentleman_2.wav,gentleman,F2,620.7,0.132,0.891,JH EH1 N T AH0 L M AH0 N,JH,50
+voice_F2_get_2.wav,get,F2,397.6,0.139,0.891,G EH1 T,G,50
+voice_F2_great_2.wav,great,F2,496.1,0.139,0.891,G R EY1 T,G,80
+voice_F2_happened_2.wav,happened,F2,799.5,0.105,0.891,HH AE1 P AH0 N D,HH,120
+voice_F2_have_2.wav,have,F2,543.3,0.122,0.891,HH AE1 V,HH,100
+voice_F2_home_2.wav,home,F2,512,0.147,0.891,HH OW1 M,HH,100
+voice_F2_idea_2.wav,idea,F2,599.2,0.148,0.891,AY0 D IY1 AH0,AY0,150
+voice_F2_inside_2.wav,inside,F2,665.9,0.101,0.891,IH2 N S AY1 D,IH2,100
+voice_F2_interesting_2.wav,interesting,F2,852.7,0.102,0.891,IH1 N T AH0 R EH2 S T IH0 NG,IH1,100
+voice_F2_into_2.wav,into,F2,614.7,0.129,0.891,IH1 N T UW0,IH1,120
+voice_F2_island_2.wav,island,F2,652.2,0.115,0.891,AY1 L AH0 N D,AY1,200
+voice_F2_isolation_2.wav,isolation,F2,768,0.092,0.891,AY2 S AH0 L EY1 SH AH0 N,AY2,130
+voice_F2_jellyfish_2.wav,jellyfish,F2,713.4,0.092,0.891,JH EH1 L IY0 F IH2 SH,JH,80
+voice_F2_joie_2.wav,joie,F2,603.9,0.136,0.891,ZH W AA1,ZH,180
+voice_F2_join_2.wav,join,F2,577.7,0.154,0.891,JH OY1 N,JH,90
+voice_F2_just_2.wav,just,F2,529.4,0.148,0.891,JH AH1 S T,JH,100
+voice_F2_kid_2.wav,kid,F2,388.6,0.108,0.891,K IH1 D,K,110
+voice_F2_like_2.wav,like,F2,460.2,0.111,0.891,L AY1 K,L,90
+voice_F2_listen_2.wav,listen,F2,510.6,0.138,0.891,L IH1 S AH0 N,L,80
+voice_F2_love_2.wav,love,F2,424.9,0.195,0.891,L AH1 V,L,80
+voice_F2_make_2.wav,make,F2,505,0.141,0.891,M EY1 K,M,100
+voice_F2_mother_2.wav,mother,F2,488.3,0.127,0.891,M AH1 DH ER0,M,100
+voice_F2_my_2.wav,my,F2,498.3,0.122,0.891,M AY1,M,100
+voice_F2_nice_2.wav,nice,F2,690.2,0.107,0.891,N AY1 S,N,160
+voice_F2_no_2.wav,no,F2,701.1,0.158,0.891,N OW1,N,100
+voice_F2_number_2.wav,number,F2,477.3,0.125,0.891,N AH1 M B ER0,N,70
+voice_F2_october_2.wav,october,F2,761,0.114,0.891,AA0 K T OW1 B ER0,AA0,110
+voice_F2_oily_2.wav,oily,F2,583.6,0.158,0.891,OY1 L IY0,OY1,210
+voice_F2_ointment_2.wav,ointment,F2,701.3,0.116,0.891,OY1 N T M AH0 N T,OY1,190
+voice_F2_olympic_2.wav,olympic,F2,743.9,0.132,0.891,OW0 L IH1 M P IH0 K,OW0,140
+voice_F2_one_2.wav,one,F2,507.7,0.146,0.891,W AH1 N,W,90
+voice_F2_oodles_2.wav,oodles,F2,718.2,0.174,0.891,UW1 D AH0 L Z,UW1,200
+voice_F2_oolong_2.wav,oolong,F2,656.6,0.119,0.891,UW1 L AO0 NG,UW1,220
+voice_F2_ooze_2.wav,ooze,F2,607.1,0.224,0.891,UW1 Z,UW1,380
+voice_F2_open_2.wav,open,F2,556.2,0.159,0.891,OW1 P AH0 N,OW1,200
+voice_F2_opportunity_2.wav,opportunity,F2,1364.4,0.107,0.891,AA2 P ER0 T UW1 N AH0 T IY0,AA2,130
+voice_F2_organization_2.wav,organization,F2,1000,0.119,0.891,AO2 R G AH0 N AH0 Z EY1 SH AH0 N,AO2,150
+voice_F2_other_2.wav,other,F2,399.8,0.152,0.891,AH1 DH ER0,AH1,130
+voice_F2_ourselves_2.wav,ourselves,F2,860.4,0.126,0.891,AW0 ER0 S EH1 L V Z,AW0,130
+voice_F2_outside_2.wav,outside,F2,833.5,0.121,0.891,AW1 T S AY1 D,AW1,200
+voice_F2_outstanding_2.wav,outstanding,F2,834.9,0.102,0.891,AW2 T S T AE1 N D IH0 NG,AW2,120
+voice_F2_over_2.wav,over,F2,481.1,0.142,0.891,OW1 V ER0,OW1,180
+voice_F2_oysters_2.wav,oysters,F2,728.6,0.124,0.891,OY1 S T ER0 Z,OY1,200
+voice_F2_people_2.wav,people,F2,473.3,0.127,0.891,P IY1 P AH0 L,P,70
+voice_F2_phone_2.wav,phone,F2,465.1,0.13,0.891,F OW1 N,F,110
+voice_F2_please_2.wav,please,F2,542.7,0.15,0.891,P L IY1 Z,P,90
+voice_F2_probably_2.wav,probably,F2,638.7,0.131,0.891,P R AA1 B AH0 B L IY2,P,90
+voice_F2_reason_2.wav,reason,F2,560.5,0.155,0.891,R IY1 Z AH0 N,R,100
+voice_F2_remember_2.wav,remember,F2,708,0.191,0.891,R IH0 M EH1 M B ER0,R,100
+voice_F2_right_2.wav,right,F2,480.6,0.126,0.891,R AY1 T,R,120
+voice_F2_say_2.wav,say,F2,605.9,0.114,0.891,S EY1,S,200
+voice_F2_short_2.wav,short,F2,617.1,0.137,0.891,SH AO1 R T,SH,180
+voice_F2_show_2.wav,show,F2,633.9,0.14,0.891,SH OW1,SH,190
+voice_F2_some_2.wav,some,F2,609.3,0.099,0.891,S AH1 M,S,180
+voice_F2_something_2.wav,something,F2,600.5,0.081,0.891,S AH1 M TH IH0 NG,S,120
+voice_F2_stop_2.wav,stop,F2,630.3,0.116,0.891,S T AA1 P,S,200
+voice_F2_sure_2.wav,sure,F2,561,0.172,0.891,SH UH1 R,SH,190
+voice_F2_thanks_2.wav,thanks,F2,598.6,0.121,0.891,TH AE1 NG K S,TH,60
+voice_F2_themselves_2.wav,themselves,F2,854,0.116,0.891,DH EH0 M S EH1 L V Z,DH,90
+voice_F2_they_2.wav,they,F2,581.8,0.163,0.891,DH EY1,DH,130
+voice_F2_think_2.wav,think,F2,438.8,0.122,0.891,TH IH1 NG K,TH,80
+voice_F2_this_2.wav,this,F2,726.8,0.151,0.891,DH IH1 S,DH,100
+voice_F2_thousand_2.wav,thousand,F2,721.5,0.102,0.891,TH AW1 Z AH0 N D,TH,60
+voice_F2_time_2.wav,time,F2,584.2,0.133,0.891,T AY1 M,T,40
+voice_F2_together_2.wav,together,F2,690,0.133,0.891,T AH0 G EH1 DH ER0,T,70
+voice_F2_tonight_2.wav,tonight,F2,691.1,0.129,0.891,T AH0 N AY1 T,T,70
+voice_F2_under_2.wav,under,F2,565.6,0.11,0.891,AH1 N D ER0,AH1,120
+voice_F2_up_2.wav,up,F2,396.1,0.125,0.891,AH1 P,AH1,150
+voice_F2_urgent_2.wav,urgent,F2,674.6,0.151,0.891,ER1 JH AH0 N T,ER1,220
+voice_F2_vacation_2.wav,vacation,F2,703.7,0.1,0.891,V EY0 K EY1 SH AH0 N,V,60
+voice_F2_very_2.wav,very,F2,459.7,0.141,0.891,V EH1 R IY0,V,50
+voice_F2_video_2.wav,video,F2,543.7,0.148,0.891,V IH1 D IY0 OW0,V,80
+voice_F2_wait_2.wav,wait,F2,455.2,0.116,0.891,W EY1 T,W,100
+voice_F2_what_2.wav,what,F2,424.7,0.124,0.891,W AH1 T,W,110
+voice_F2_year_2.wav,year,F2,419.5,0.128,0.891,Y IH1 R,Y,100
+voice_F2_yes_2.wav,yes,F2,468.3,0.119,0.891,Y EH1 S,Y,100
+voice_F2_yourself_2.wav,yourself,F2,636.9,0.1,0.891,Y ER0 S EH1 L F,Y,60
+voice_F2_zebra_2.wav,zebra,F2,522.5,0.11,0.891,Z IY1 B R AH0,Z,100
+voice_F2_zone_2.wav,zone,F2,544.8,0.118,0.891,Z OW1 N,Z,120
+voice_F2_zoo_2.wav,zoo,F2,519.2,0.161,0.891,Z UW1,Z,140
+voice_M1_absolutely_2.wav,absolutely,M1,784.8,0.102,0.891,AE2 B S AH0 L UW1 T L IY0,AE2,100
+voice_M1_accept_2.wav,accept,M1,556.2,0.115,0.891,AE0 K S EH1 P T,AE0,70
+voice_M1_actually_2.wav,actually,M1,713.3,0.116,0.891,AE1 K CH UW2 AH0 L IY0,AE1,115
+voice_M1_again_2.wav,again,M1,486.6,0.113,0.891,AH0 G EH1 N,AH0,50
+voice_M1_agent_2.wav,agent,M1,574.4,0.100,0.891,EY1 JH AH0 N T,EY1,140
+voice_M1_alive_2.wav,alive,M1,586.8,0.133,0.891,AH0 L AY1 V,AH0,80
+voice_M1_all_2.wav,all,M1,418.3,0.189,0.891,AO1 L,AO1,120
+voice_M1_already_2.wav,already,M1,538.0,0.170,0.891,AO0 L R EH1 D IY0,AO0,105
+voice_M1_appreciate_2.wav,appreciate,M1,725.1,0.108,0.891,AH0 P R IY1 SH IY0 EY2 T,AH0,50
+voice_M1_artist_2.wav,artist,M1,624.6,0.149,0.891,AA1 R T AH0 S T,AA1,140
+voice_M1_aviation_2.wav,aviation,M1,648.2,0.145,0.891,EY2 V IY0 EY1 SH AH0 N,EY2,115
+voice_M1_back_2.wav,back,M1,384.8,0.092,0.891,B AE1 K,B,75
+voice_M1_ball_2.wav,ball,M1,475.9,0.193,0.891,B AO1 L,B,150
+voice_M1_believe_2.wav,believe,M1,483.0,0.097,0.891,B IH0 L IY1 V,B,60
+voice_M1_business_2.wav,business,M1,566.2,0.134,0.891,B IH1 Z N AH0 S,B,30
+voice_M1_call_2.wav,call,M1,404.8,0.141,0.891,K AO1 L,K,70
+voice_M1_change_2.wav,change,M1,597.4,0.099,0.891,CH EY1 N JH,CH,95
+voice_M1_check_2.wav,check,M1,420.3,0.085,0.891,CH EH1 K,CH,115
+voice_M1_children_2.wav,children,M1,569.8,0.110,0.891,CH IH1 L D R AH0 N,CH,100
+voice_M1_come_2.wav,come,M1,369.3,0.125,0.891,K AH1 M,K,55
+voice_M1_day_2.wav,day,M1,420.4,0.169,0.891,D EY1,D,30
+voice_M1_dear_2.wav,dear,M1,395.5,0.149,0.891,D IH1 R,D,40
+voice_M1_doctor_2.wav,doctor,M1,495.6,0.095,0.891,D AA1 K T ER0,D,45
+voice_M1_early_2.wav,early,M1,794.0,0.169,0.891,ER1 L IY0,ER1,200
+voice_M1_earn_2.wav,earn,M1,498.6,0.153,0.891,ER1 N,ER1,200
+voice_M1_eighteen_2.wav,eighteen,M1,563.8,0.144,0.891,EY0 T IY1 N,EY0,130
+voice_M1_email_2.wav,email,M1,481.2,0.168,0.891,IY0 M EY1 L,IY0,100
+voice_M1_employee_2.wav,employee,M1,696.4,0.132,0.891,EH0 M P L OY1 IY0,EH0,65
+voice_M1_enjoy_2.wav,enjoy,M1,563.9,0.159,0.891,EH2 N JH OY1,EH2,70
+voice_M1_equatorial_2.wav,equatorial,M1,869.1,0.130,0.891,IY2 K W AH0 T AO1 R IY0 AH0 L,IY2,80
+voice_M1_even_2.wav,even,M1,649.3,0.108,0.891,IY1 V IH0 N,IY1,160
+voice_M1_ever_2.wav,ever,M1,403.3,0.158,0.891,EH1 V ER0,EH1,140
+voice_M1_father_2.wav,father,M1,455.7,0.143,0.891,F AA1 DH ER0,F,75
+voice_M1_from_2.wav,from,M1,553.3,0.123,0.891,F R AH1 M,F,160
+voice_M1_game_2.wav,game,M1,362.4,0.057,0.891,G EY1 M,G,25
+voice_M1_gendarme_2.wav,gendarme,M1,723.5,0.154,0.891,ZH AA1 N D AA2 R M,ZH,140
+voice_M1_genre_2.wav,genre,M1,578.5,0.123,0.891,ZH AA1 N R AH0,ZH,140
+voice_M1_gentleman_2.wav,gentleman,M1,658.8,0.095,0.891,JH EH1 N T AH0 L M AH0 N,JH,75
+voice_M1_get_2.wav,get,M1,326.1,0.143,0.891,G EH1 T,G,40
+voice_M1_great_2.wav,great,M1,531.0,0.081,0.891,G R EY1 T,G,120
+voice_M1_happened_2.wav,happened,M1,597.6,0.082,0.891,HH AE1 P AH0 N D,HH,60
+voice_M1_have_2.wav,have,M1,581.1,0.140,0.891,HH AE1 V,HH,90
+voice_M1_home_2.wav,home,M1,369.0,0.139,0.891,HH OW1 M,HH,60
+voice_M1_idea_2.wav,idea,M1,651.5,0.117,0.891,AY0 D IY1 AH0,AY0,195
+voice_M1_inside_2.wav,inside,M1,821.0,0.119,0.891,IH2 N S AY1 D,IH2,70
+voice_M1_interesting_2.wav,interesting,M1,859.2,0.100,0.891,IH1 N T AH0 R EH2 S T IH0 NG,IH1,140
+voice_M1_into_2.wav,into,M1,797.5,0.137,0.891,IH1 N T UW0,IH1,90
+voice_M1_island_2.wav,island,M1,775.6,0.122,0.891,AY1 L AH0 N D,AY1,200
+voice_M1_isolation_2.wav,isolation,M1,714.5,0.089,0.891,AY2 S AH0 L EY1 SH AH0 N,AY2,115
+voice_M1_jellyfish_2.wav,jellyfish,M1,738.3,0.177,0.891,JH EH1 L IY0 F IH2 SH,JH,60
+voice_M1_joie_2.wav,joie,M1,513.4,0.160,0.887,ZH W AA1,ZH,160
+voice_M1_join_2.wav,join,M1,576.7,0.165,0.891,JH OY1 N,JH,155
+voice_M1_just_2.wav,just,M1,529.4,0.136,0.891,JH AH1 S T,JH,80
+voice_M1_kid_2.wav,kid,M1,336.6,0.099,0.891,K IH1 D,K,65
+voice_M1_like_2.wav,like,M1,509.5,0.101,0.891,L AY1 K,L,95
+voice_M1_listen_2.wav,listen,M1,468.0,0.252,0.891,L IH1 S AH0 N,L,90
+voice_M1_love_2.wav,love,M1,747.6,0.167,0.891,L AH1 V,L,130
+voice_M1_make_2.wav,make,M1,461.6,0.084,0.891,M EY1 K,M,120
+voice_M1_mother_2.wav,mother,M1,448.2,0.180,0.891,M AH1 DH ER0,M,65
+voice_M1_my_2.wav,my,M1,511.7,0.171,0.891,M AY1,M,110
+voice_M1_nice_2.wav,nice,M1,821.7,0.161,0.891,N AY1 S,N,155
+voice_M1_no_2.wav,no,M1,632.6,0.178,0.891,N OW1,N,180
+voice_M1_number_2.wav,number,M1,693.1,0.157,0.891,N AH1 M B ER0,N,145
+voice_M1_october_2.wav,october,M1,783.7,0.111,0.882,AA0 K T OW1 B ER0,AA0,85
+voice_M1_oily_2.wav,oily,M1,657.1,0.149,0.891,OY1 L IY0,OY1,250
+voice_M1_ointment_2.wav,ointment,M1,773.5,0.142,0.888,OY1 N T M AH0 N T,OY1,160
+voice_M1_olympic_2.wav,olympic,M1,647.8,0.130,0.891,OW0 L IH1 M P IH0 K,OW0,90
+voice_M1_one_2.wav,one,M1,591.2,0.133,0.891,W AH1 N,W,210
+voice_M1_oodles_2.wav,oodles,M1,708.7,0.180,0.891,UW1 D AH0 L Z,UW1,245
+voice_M1_oolong_2.wav,oolong,M1,478.6,0.132,0.891,UW1 L AO0 NG,UW1,170
+voice_M1_ooze_2.wav,ooze,M1,543.7,0.210,0.891,UW1 Z,UW1,280
+voice_M1_open_2.wav,open,M1,386.8,0.131,0.891,OW1 P AH0 N,OW1,125
+voice_M1_opportunity_2.wav,opportunity,M1,1001.8,0.079,0.891,AA2 P ER0 T UW1 N AH0 T IY0,AA2,65
+voice_M1_organization_2.wav,organization,M1,904.4,0.174,0.891,AO2 R G AH0 N AH0 Z EY1 SH AH0 N,AO2,115
+voice_M1_other_2.wav,other,M1,467.5,0.132,0.891,AH1 DH ER0,AH1,120
+voice_M1_ourselves_2.wav,ourselves,M1,685.3,0.166,0.891,AW0 ER0 S EH1 L V Z,AW0,55
+voice_M1_outside_2.wav,outside,M1,752.4,0.108,0.891,AW1 T S AY1 D,AW1,115
+voice_M1_outstanding_2.wav,outstanding,M1,781.9,0.094,0.891,AW2 T S T AE1 N D IH0 NG,AW2,115
+voice_M1_over_2.wav,over,M1,464.6,0.167,0.891,OW1 V ER0,OW1,150
+voice_M1_oysters_2.wav,oysters,M1,662.5,0.117,0.891,OY1 S T ER0 Z,OY1,140
+voice_M1_people_2.wav,people,M1,568.9,0.123,0.891,P IY1 P AH0 L,P,50
+voice_M1_phone_2.wav,phone,M1,429.4,0.118,0.891,F OW1 N,F,120
+voice_M1_please_2.wav,please,M1,555.0,0.180,0.891,P L IY1 Z,P,70
+voice_M1_probably_2.wav,probably,M1,539.9,0.108,0.891,P R AA1 B AH0 B L IY2,P,50
+voice_M1_reason_2.wav,reason,M1,524.3,0.122,0.891,R IY1 Z AH0 N,R,130
+voice_M1_remember_2.wav,remember,M1,702.8,0.124,0.891,R IH0 M EH1 M B ER0,R,120
+voice_M1_right_2.wav,right,M1,699.0,0.126,0.891,R AY1 T,R,140
+voice_M1_say_2.wav,say,M1,476.1,0.145,0.891,S EY1,S,165
+voice_M1_short_2.wav,short,M1,770.9,0.201,0.891,SH AO1 R T,SH,220
+voice_M1_show_2.wav,show,M1,674.4,0.141,0.891,SH OW1,SH,200
+voice_M1_some_2.wav,some,M1,433.8,0.204,0.891,S AH1 M,S,165
+voice_M1_something_2.wav,something,M1,593.4,0.137,0.891,S AH1 M TH IH0 NG,S,185
+voice_M1_stop_2.wav,stop,M1,664.8,0.111,0.891,S T AA1 P,S,145
+voice_M1_sure_2.wav,sure,M1,537.7,0.144,0.891,SH UH1 R,SH,210
+voice_M1_thanks_2.wav,thanks,M1,618.7,0.156,0.891,TH AE1 NG K S,TH,135
+voice_M1_themselves_2.wav,themselves,M1,791.7,0.141,0.891,DH EH0 M S EH1 L V Z,DH,90
+voice_M1_they_2.wav,they,M1,493.9,0.164,0.891,DH EY1,DH,120
+voice_M1_think_2.wav,think,M1,524.5,0.124,0.891,TH IH1 NG K,TH,135
+voice_M1_this_2.wav,this,M1,598.4,0.137,0.891,DH IH1 S,DH,170
+voice_M1_thousand_2.wav,thousand,M1,856.4,0.112,0.891,TH AW1 Z AH0 N D,TH,170
+voice_M1_time_2.wav,time,M1,387.6,0.107,0.891,T AY1 M,T,70
+voice_M1_together_2.wav,together,M1,539.3,0.114,0.891,T AH0 G EH1 DH ER0,T,70
+voice_M1_tonight_2.wav,tonight,M1,542.7,0.112,0.891,T AH0 N AY1 T,T,85
+voice_M1_under_2.wav,under,M1,709.0,0.158,0.891,AH1 N D ER0,AH1,130
+voice_M1_up_2.wav,up,M1,438.4,0.115,0.891,AH1 P,AH1,160
+voice_M1_urgent_2.wav,urgent,M1,618.2,0.170,0.891,ER1 JH AH0 N T,ER1,185
+voice_M1_vacation_2.wav,vacation,M1,605.5,0.154,0.891,V EY0 K EY1 SH AH0 N,V,40
+voice_M1_very_2.wav,very,M1,698.4,0.140,0.891,V EH1 R IY0,V,80
+voice_M1_video_2.wav,video,M1,581.9,0.120,0.891,V IH1 D IY0 OW0,V,50
+voice_M1_wait_2.wav,wait,M1,714.3,0.131,0.891,W EY1 T,W,210
+voice_M1_what_2.wav,what,M1,427.0,0.115,0.891,W AH1 T,W,100
+voice_M1_year_2.wav,year,M1,359.6,0.149,0.891,Y IH1 R,Y,125
+voice_M1_yes_2.wav,yes,M1,481.8,0.152,0.891,Y EH1 S,Y,120
+voice_M1_yourself_2.wav,yourself,M1,559.4,0.127,0.891,Y ER0 S EH1 L F,Y,50
+voice_M1_zebra_2.wav,zebra,M1,494.3,0.141,0.891,Z IY1 B R AH0,Z,115
+voice_M1_zone_2.wav,zone,M1,487.1,0.186,0.891,Z OW1 N,Z,155
+voice_M1_zoo_2.wav,zoo,M1,506.6,0.141,0.891,Z UW1,Z,185
+voice_M2_absolutely_2.wav,absolutely,M2,781.9,0.136,0.891,AE2 B S AH0 L UW1 T L IY0,AE2,100
+voice_M2_accept_2.wav,accept,M2,663.3,0.128,0.891,AE0 K S EH1 P T,AE0,120
+voice_M2_actually_2.wav,actually,M2,742.1,0.103,0.891,AE1 K CH UW2 AH0 L IY0,AE1,110
+voice_M2_again_2.wav,again,M2,476.3,0.134,0.891,AH0 G EH1 N,AH0,90
+voice_M2_agent_2.wav,agent,M2,633.8,0.109,0.891,EY1 JH AH0 N T,EY1,220
+voice_M2_alive_2.wav,alive,M2,588.2,0.149,0.891,AH0 L AY1 V,AH0,120
+voice_M2_all_2.wav,all,M2,540.7,0.203,0.891,AO1 L,AO1,300
+voice_M2_already_2.wav,already,M2,634.8,0.191,0.891,AO0 L R EH1 D IY0,AO0,180
+voice_M2_appreciate_2.wav,appreciate,M2,945.3,0.11,0.891,AH0 P R IY1 SH IY0 EY2 T,AH0,150
+voice_M2_artist_2.wav,artist,M2,713,0.158,0.891,AA1 R T AH0 S T,AA1,190
+voice_M2_aviation_2.wav,aviation,M2,926.1,0.124,0.891,EY2 V IY0 EY1 SH AH0 N,EY2,220
+voice_M2_back_2.wav,back,M2,455.4,0.134,0.891,B AE1 K,B,50
+voice_M2_ball_2.wav,ball,M2,600.6,0.176,0.891,B AO1 L,B,60
+voice_M2_believe_2.wav,believe,M2,634.9,0.132,0.891,B IH0 L IY1 V,B,70
+voice_M2_business_2.wav,business,M2,696.4,0.125,0.891,B IH1 Z N AH0 S,B,70
+voice_M2_call_2.wav,call,M2,509.6,0.178,0.891,K AO1 L,K,90
+voice_M2_change_2.wav,change,M2,598.2,0.125,0.891,CH EY1 N JH,CH,100
+voice_M2_check_2.wav,check,M2,460.8,0.138,0.891,CH EH1 K,CH,110
+voice_M2_children_2.wav,children,M2,566.4,0.127,0.891,CH IH1 L D R AH0 N,CH,80
+voice_M2_come_2.wav,come,M2,397.3,0.158,0.891,K AH1 M,K,80
+voice_M2_day_2.wav,day,M2,470.8,0.179,0.891,D EY1,D,50
+voice_M2_dear_2.wav,dear,M2,444.2,0.131,0.891,D IH1 R,D,50
+voice_M2_doctor_2.wav,doctor,M2,583.5,0.1,0.891,D AA1 K T ER0,D,60
+voice_M2_early_2.wav,early,M2,524.8,0.213,0.891,ER1 L IY0,ER1,230
+voice_M2_earn_2.wav,earn,M2,509.5,0.236,0.891,ER1 N,ER1,300
+voice_M2_eighteen_2.wav,eighteen,M2,758,0.105,0.891,EY0 T IY1 N,EY0,200
+voice_M2_email_2.wav,email,M2,742.7,0.108,0.891,IY0 M EY1 L,IY0,230
+voice_M2_employee_2.wav,employee,M2,919.6,0.094,0.891,EH0 M P L OY1 IY0,EH0,120
+voice_M2_enjoy_2.wav,enjoy,M2,779.4,0.121,0.891,EH2 N JH OY1,EH2,130
+voice_M2_equatorial_2.wav,equatorial,M2,976.3,0.105,0.891,IY2 K W AH0 T AO1 R IY0 AH0 L,IY2,110
+voice_M2_even_2.wav,even,M2,600.1,0.148,0.891,IY1 V IH0 N,IY1,230
+voice_M2_ever_2.wav,ever,M2,428,0.157,0.891,EH1 V ER0,EH1,150
+voice_M2_father_2.wav,father,M2,557.6,0.15,0.891,F AA1 DH ER0,F,120
+voice_M2_from_2.wav,from,M2,572.7,0.148,0.891,F R AH1 M,F,240
+voice_M2_game_2.wav,game,M2,524.4,0.16,0.891,G EY1 M,G,60
+voice_M2_gendarme_2.wav,gendarme,M2,903.4,0.129,0.891,ZH AA1 N D AA2 R M,ZH,210
+voice_M2_genre_2.wav,genre,M2,727.9,0.132,0.891,ZH AA1 N R AH0,ZH,200
+voice_M2_gentleman_2.wav,gentleman,M2,801,0.12,0.891,JH EH1 N T AH0 L M AH0 N,JH,100
+voice_M2_get_2.wav,get,M2,630.7,0.136,0.891,G EH1 T,G,100
+voice_M2_great_2.wav,great,M2,593.7,0.17,0.891,G R EY1 T,G,140
+voice_M2_happened_2.wav,happened,M2,644.9,0.102,0.891,HH AE1 P AH0 N D,HH,160
+voice_M2_have_2.wav,have,M2,567.1,0.101,0.891,HH AE1 V,HH,180
+voice_M2_home_2.wav,home,M2,679,0.168,0.891,HH OW1 M,HH,150
+voice_M2_idea_2.wav,idea,M2,634.7,0.145,0.891,AY0 D IY1 AH0,AY0,240
+voice_M2_inside_2.wav,inside,M2,798.8,0.139,0.891,IH2 N S AY1 D,IH2,130
+voice_M2_interesting_2.wav,interesting,M2,864.3,0.119,0.891,IH1 N T AH0 R EH2 S T IH0 NG,IH1,120
+voice_M2_into_2.wav,into,M2,616.5,0.147,0.891,IH1 N T UW0,IH1,180
+voice_M2_island_2.wav,island,M2,578.3,0.171,0.891,AY1 L AH0 N D,AY1,240
+voice_M2_isolation_2.wav,isolation,M2,958.9,0.134,0.891,AY2 S AH0 L EY1 SH AH0 N,AY2,200
+voice_M2_jellyfish_2.wav,jellyfish,M2,839.9,0.115,0.891,JH EH1 L IY0 F IH2 SH,JH,180
+voice_M2_joie_2.wav,joie,M2,652.4,0.186,0.891,ZH W AA1,ZH,230
+voice_M2_join_2.wav,join,M2,526.5,0.161,0.891,JH OY1 N,JH,100
+voice_M2_just_2.wav,just,M2,434.9,0.163,0.891,JH AH1 S T,JH,70
+voice_M2_kid_2.wav,kid,M2,352.2,0.118,0.891,K IH1 D,K,80
+voice_M2_like_2.wav,like,M2,477.4,0.13,0.891,L AY1 K,L,230
+voice_M2_listen_2.wav,listen,M2,528.3,0.121,0.891,L IH1 S AH0 N,L,130
+voice_M2_love_2.wav,love,M2,543.2,0.172,0.891,L AH1 V,L,130
+voice_M2_make_2.wav,make,M2,612.4,0.111,0.891,M EY1 K,M,170
+voice_M2_mother_2.wav,mother,M2,482.7,0.136,0.891,M AH1 DH ER0,M,130
+voice_M2_my_2.wav,my,M2,508.4,0.136,0.891,M AY1,M,150
+voice_M2_nice_2.wav,nice,M2,699.3,0.158,0.891,N AY1 S,N,180
+voice_M2_no_2.wav,no,M2,581.7,0.162,0.891,N OW1,N,260
+voice_M2_number_2.wav,number,M2,600.9,0.14,0.891,N AH1 M B ER0,N,200
+voice_M2_october_2.wav,october,M2,826.6,0.171,0.891,AA0 K T OW1 B ER0,AA0,180
+voice_M2_oily_2.wav,oily,M2,621.8,0.226,0.891,OY1 L IY0,OY1,260
+voice_M2_ointment_2.wav,ointment,M2,416.5,0.143,0.891,OY1 N T M AH0 N T,OY1,180
+voice_M2_olympic_2.wav,olympic,M2,782.5,0.147,0.891,OW0 L IH1 M P IH0 K,OW0,140
+voice_M2_one_2.wav,one,M2,427.3,0.157,0.891,W AH1 N,W,250
+voice_M2_oodles_2.wav,oodles,M2,721.8,0.175,0.891,UW1 D AH0 L Z,UW1,220
+voice_M2_oolong_2.wav,oolong,M2,571.3,0.195,0.891,UW1 L AO0 NG,UW1,220
+voice_M2_ooze_2.wav,ooze,M2,603.9,0.178,0.891,UW1 Z,UW1,340
+voice_M2_open_2.wav,open,M2,541.9,0.154,0.891,OW1 P AH0 N,OW1,200
+voice_M2_opportunity_2.wav,opportunity,M2,877.5,0.098,0.891,AA2 P ER0 T UW1 N AH0 T IY0,AA2,120
+voice_M2_organization_2.wav,organization,M2,1123,0.155,0.891,AO2 R G AH0 N AH0 Z EY1 SH AH0 N,AO2,200
+voice_M2_other_2.wav,other,M2,396.6,0.119,0.891,AH1 DH ER0,AH1,120
+voice_M2_ourselves_2.wav,ourselves,M2,895.4,0.165,0.891,AW0 ER0 S EH1 L V Z,AW0,180
+voice_M2_outside_2.wav,outside,M2,675.3,0.138,0.891,AW1 T S AY1 D,AW1,180
+voice_M2_outstanding_2.wav,outstanding,M2,821.2,0.109,0.891,AW2 T S T AE1 N D IH0 NG,AW2,200
+voice_M2_over_2.wav,over,M2,509.7,0.211,0.891,OW1 V ER0,OW1,180
+voice_M2_oysters_2.wav,oysters,M2,774.4,0.131,0.891,OY1 S T ER0 Z,OY1,180
+voice_M2_people_2.wav,people,M2,514.4,0.108,0.891,P IY1 P AH0 L,P,100
+voice_M2_phone_2.wav,phone,M2,513.5,0.173,0.891,F OW1 N,F,150
+voice_M2_please_2.wav,please,M2,611.2,0.151,0.891,P L IY1 Z,P,120
+voice_M2_probably_2.wav,probably,M2,712.9,0.144,0.891,P R AA1 B AH0 B L IY2,P,150
+voice_M2_reason_2.wav,reason,M2,678.8,0.151,0.891,R IY1 Z AH0 N,R,200
+voice_M2_remember_2.wav,remember,M2,803.1,0.153,0.891,R IH0 M EH1 M B ER0,R,160
+voice_M2_right_2.wav,right,M2,440,0.189,0.891,R AY1 T,R,190
+voice_M2_say_2.wav,say,M2,567,0.134,0.891,S EY1,S,190
+voice_M2_short_2.wav,short,M2,636.7,0.116,0.891,SH AO1 R T,SH,190
+voice_M2_show_2.wav,show,M2,555,0.155,0.891,SH OW1,SH,240
+voice_M2_some_2.wav,some,M2,458.2,0.138,0.891,S AH1 M,S,190
+voice_M2_something_2.wav,something,M2,589.6,0.116,0.891,S AH1 M TH IH0 NG,S,170
+voice_M2_stop_2.wav,stop,M2,429.8,0.174,0.891,S T AA1 P,S,120
+voice_M2_sure_2.wav,sure,M2,524.6,0.15,0.891,SH UH1 R,SH,180
+voice_M2_thanks_2.wav,thanks,M2,396.5,0.127,0.891,TH AE1 NG K S,TH,170
+voice_M2_themselves_2.wav,themselves,M2,942.6,0.159,0.891,DH EH0 M S EH1 L V Z,DH,80
+voice_M2_they_2.wav,they,M2,600,0.154,0.891,DH EY1,DH,210
+voice_M2_think_2.wav,think,M2,681.2,0.089,0.891,TH IH1 NG K,TH,250
+voice_M2_this_2.wav,this,M2,535.4,0.131,0.891,DH IH1 S,DH,120
+voice_M2_thousand_2.wav,thousand,M2,623.4,0.088,0.891,TH AW1 Z AH0 N D,TH,170
+voice_M2_time_2.wav,time,M2,412,0.106,0.891,T AY1 M,T,60
+voice_M2_together_2.wav,together,M2,599.3,0.165,0.891,T AH0 G EH1 DH ER0,T,60
+voice_M2_tonight_2.wav,tonight,M2,600.1,0.127,0.891,T AH0 N AY1 T,T,70
+voice_M2_under_2.wav,under,M2,526.7,0.117,0.891,AH1 N D ER0,AH1,160
+voice_M2_up_2.wav,up,M2,279.5,0.18,0.891,AH1 P,AH1,150
+voice_M2_urgent_2.wav,urgent,M2,456,0.122,0.891,ER1 JH AH0 N T,ER1,200
+voice_M2_vacation_2.wav,vacation,M2,578.1,0.097,0.891,V EY0 K EY1 SH AH0 N,V,90
+voice_M2_very_2.wav,very,M2,599,0.165,0.891,V EH1 R IY0,V,140
+voice_M2_video_2.wav,video,M2,587.3,0.111,0.891,V IH1 D IY0 OW0,V,100
+voice_M2_wait_2.wav,wait,M2,339.1,0.167,0.891,W EY1 T,W,150
+voice_M2_what_2.wav,what,M2,286.2,0.187,0.891,W AH1 T,W,170
+voice_M2_year_2.wav,year,M2,570.4,0.184,0.891,Y IH1 R,Y,200
+voice_M2_yes_2.wav,yes,M2,518.3,0.167,0.891,Y EH1 S,Y,150
+voice_M2_yourself_2.wav,yourself,M2,663.4,0.12,0.891,Y ER0 S EH1 L F,Y,150
+voice_M2_zebra_2.wav,zebra,M2,1148.7,0.102,0.891,Z IY1 B R AH0,Z,200
+voice_M2_zone_2.wav,zone,M2,658.5,0.152,0.891,Z OW1 N,Z,220
+voice_M2_zoo_2.wav,zoo,M2,605.5,0.156,0.891,Z UW1,Z,220
