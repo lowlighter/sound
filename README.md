@@ -9,14 +9,16 @@
 **Ouvrir un fichier, générer une banque de filtre et d'afficher son spectre d'amplitude ainsi que son spectrogramme personnalisé**
 ```python
 compute(
-  file, fs=0, 
-  q=0, n=0, 
+  file, fs=0,
+  q=0, n=0,
   fcs=False,
   nb_filters=0, fmin=0, fmax=0,
-  filters=[], filters_fq=[], 
-  time_res=0, amp_res=0, 
-  ax=None
+  filters=[], filters_fq=[],
+  time_res=0, amp_res=0,
+  ax=None,
+  spec_only=False, spec_xlim=False
 )
+
 # < rsegs, rfreqs, rseqs
 ```
 **Traitement des données reçus par le microphone de l'ordinateur** *(nécessite pyaudio)*
@@ -82,7 +84,7 @@ gen_data(filtered, fs, time_res, amp_res, filters_fq)
 ```
 **Afficher le spectrogramme personnalisé**
 ```python
-plot_datagram(rsegs, rfreqs, rseqs, ax=None)
+plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=False)
 ```
 **Afficher le spectre d'amplitude ainsi que le spectrogramme personnalisé**
 ```python
@@ -92,4 +94,8 @@ plot_data(y, t, rsegs, rfreqs, rseqs, ax=None)
 ```python
 state_at(filter_no, s, rsegs, rseqs, debug=False)
 # < state
+```
+**Comparaison de différents fichiers audios**
+```python
+compare(words, persons, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[])
 ```
