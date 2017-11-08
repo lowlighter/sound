@@ -2,7 +2,8 @@
 # (Voir la documentation de la fonction compute)
 # > words : Liste des mots à comparer
 # > persons : Liste des personnes prononçant ces mots
-def compare(words, persons, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[]):
+# > compare_format : Format des fichiers (doit contenir {person} et {word} dans le nom)
+def compare(words, persons, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[], compare_format=""):
     # Durée du fichier le plus long
     xlim = 0
     for word in words:

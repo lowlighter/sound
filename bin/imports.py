@@ -9,5 +9,3 @@ from scipy import signal
 from scipy.signal import butter, lfilter
 from operator import add
 from matplotlib.widgets import Slider
-from ipywidgets import widgets
-from IPython.display import display
