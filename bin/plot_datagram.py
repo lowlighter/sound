@@ -6,17 +6,16 @@
 # > [title] : Titre
 # > [xlim] : Limite en abscisse
 def plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=False):
+    freqs = np.arange(len(rfreqs)+1)
     if type(ax) == type(None):
         plt.figure(figsize=(12, 4), dpi= 80, facecolor="w", edgecolor="k")
         ax = plt.subplot(111)
-    X, Y = np.meshgrid(rsegs, rfreqs)
+    X, Y = np.meshgrid(rsegs, freqs)
     ax.set_title(title)
     ax.set_xlabel("Time [s]")
     ax.set_ylabel("Frequency [Hz]")
-    ax.set_yscale("log")
-    ax.set_yticks(np.geomspace(rfreqs[0], rfreqs[-1], len(rfreqs)))
-    ax.get_yaxis().set_major_formatter(matplotlib.ticker.FormatStrFormatter('%d'))
-    ax.get_yaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
+    ax.set_yticks(freqs)
+    ax.get_yaxis().set_ticklabels(np.array(rfreqs).astype(int))
     ax.pcolormesh(X, Y, rseqs, cmap="magma")
     ax.set_facecolor("black")
     if xlim == False:
