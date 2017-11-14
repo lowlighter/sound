@@ -17,6 +17,5 @@ def gen_data(filtered, fs, time_res, amp_res, filters_fq):
         rfreqs.append(filters_fq[i]["fc"])
     # Normalisation
     for i in range(len(rseqs)):
-        for j in range(len(rseqs[i])):
-            rseqs[i] = np.round(np.array(rseqs[i])/(np.max(rseqs[i])/(2**amp_res-1)))
+        rseqs[i] = np.round(np.array(rseqs[i])/(np.max(rseqs[i])/(2**amp_res-1)))
     return rsegs, rfreqs, rseqs

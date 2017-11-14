@@ -5,7 +5,7 @@
 # > rfreqs : Liste de fréquences
 # > rseqs : Liste des séquence d'énergie
 # > [ax] : Figures à réutiliser
-def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None):
+def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False):
     # Figure
     if type(ax) == type(None):
         f, ax = plt.subplots(2, 1, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
@@ -14,4 +14,4 @@ def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None):
     plot_specamp(y/max(abs(y)), t, ax=ax[0])
 
     # Spectrogramme
-    plot_datagram(rsegs, rfreqs, rseqs, ax=ax[1])
+    plot_datagram(rsegs, rfreqs, rseqs, ax=ax[1], xlim=xlim)

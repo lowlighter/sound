@@ -4,6 +4,8 @@
 # Sélection de la source
 #    > file : Source du fichier à ouvrir (string)
 #    OU
+#    > file : Tableau contenant la source du fichier à ouvrir et d'autres références vers des sources de bruits
+#    OU
 #    > file : Signal d'entrée (liste d'amplitudes)
 #    > fs : Fréquence d'échantillonage
 #
@@ -36,9 +38,17 @@
 # < rspectrum : Spectre généré par la fonction gen_data
 # < rfreqs : Liste de fréquences généré par la fonction gen_data
 # < rtime : Liste de points temporels généré par la fonction gen_data
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, spec_only=False, spec_xlim=False):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False):
+    # Récupération du fichier audio et génération du bruit (si précisé)
+    if type(file) == list:
+        fs, y = sw.read(file[0])
+        y = np.array(y)
+        for i in range(1, len(file)):
+            d, noise = sw.read(file[i])
+            for j in range(0, min(len(y), len(noise))):
+                y[j] = y[j] + noise[j]
     # Récupération du fichier audio
-    if type(file) == str:
+    elif type(file) == str:
         fs, y = sw.read(file)
     else:
         y = file
@@ -46,14 +56,15 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_fil
     t = np.linspace(0, N/fs, N)
 
     # Filtrage
-    if nb_filters > 0:
+    if ((nb_filters > 0) or (len(fcs) > 0)):
         filters, filters_fq = gen_filters(q, n, fs, nb_filters=nb_filters, fmin=fmin, fmax=fmax, fcs=fcs)
     filtered = gen_filtered(y, fs, filters)
 
     # Spectrogramme
     rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq)
-    if spec_only:
-        plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim)
-    else:
-        plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax)
+    if plotd:
+        if spec_only:
+            plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim)
+        else:
+            plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax, xlim=spec_xlim)
     return rsegs, rfreqs, rseqs
