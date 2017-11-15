@@ -38,7 +38,7 @@
 # < rspectrum : Spectre généré par la fonction gen_data
 # < rfreqs : Liste de fréquences généré par la fonction gen_data
 # < rtime : Liste de points temporels généré par la fonction gen_data
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0):
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:
         fs, y = sw.read(file[0])
@@ -61,7 +61,7 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_fil
     filtered = gen_filtered(y, fs, filters)
 
     # Spectrogramme
-    rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq)
+    rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq, vmax=vmax)
     if plotd:
         if spec_only:
             plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim)

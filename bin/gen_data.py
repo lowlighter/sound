@@ -7,7 +7,7 @@
 # < rsegs : Liste des segments temporels
 # < rfreqs : Liste de fréquences
 # < rseqs : Liste des séquence d'énergie
-def gen_data(filtered, fs, time_res, amp_res, filters_fq):
+def gen_data(filtered, fs, time_res, amp_res, filters_fq, vmax=0):
     # Initialisation
     rsegs = [] ; rseqs = [] ; rfreqs = []
     # Spectrogramme
@@ -17,5 +17,7 @@ def gen_data(filtered, fs, time_res, amp_res, filters_fq):
         rfreqs.append(filters_fq[i]["fc"])
     # Normalisation
     for i in range(len(rseqs)):
+        if vmax > 0:
+            rseqs[i] = np.clip(np.array(rseqs[i]), 0, vmax)
         rseqs[i] = np.round(np.array(rseqs[i])/(np.max(rseqs[i])/(2**amp_res-1)))
     return rsegs, rfreqs, rseqs

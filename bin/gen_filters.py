@@ -12,11 +12,11 @@
 # > [debug] : Si actif, affiche les informations sur le filtre généré
 # < filters : Liste des filtres générés
 # < filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=False, debug=False):
+def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=[], debug=False):
     # Initialisation
     filters = []; filters_fq = []
 
-    if fcs == False:
+    if len(fcs) == 0:
         fcs = np.geomspace(fmin, fmax, nb_filters)
     # Création des filtres
     for fc in fcs:
