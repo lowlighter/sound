@@ -8,10 +8,13 @@
 def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False):
     # Figure
     if type(ax) == type(None):
-        f, ax = plt.subplots(2, 1, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
+        f, ax = plt.subplots(3, 1, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
 
     # Spectre d'amplitude
     plot_specamp(y/max(abs(y)), t, ax=ax[0])
 
+    # Spectre dB FS
+    plot_dbfs(y, t, ax=ax[1])
+
     # Spectrogramme
-    plot_datagram(rsegs, rfreqs, rseqs, ax=ax[1], xlim=xlim)
+    plot_datagram(rsegs, rfreqs, rseqs, ax=ax[2], xlim=xlim)
