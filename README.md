@@ -1,9 +1,15 @@
 ## Etude de la détection automatique de caractéristiques sur un signal audio
 ![Démonstration](src/demo.png)
 
-### [Cliquez ici pour lire le compte-rendu en ligne](/Rapport.ipynb).
+### [Cliquez ici pour lire le compte-rendu en ligne](/Compte-rendu.ipynb).
 
 # Liste des fonctions disponibles
+
+Vous pouvez consulter le code source de chaque fonction et leur documentation dans le dossier [/bin](https://github.com/lowlighter/sound/tree/master/bin) ou tapez le code
+suivant pour afficher de l'aide sur une fonction :
+```python
+help(function)
+```
 
 ## Traitement d'un signal audio
 **Ouvrir un fichier, générer une banque de filtre et d'afficher son spectre d'amplitude ainsi que son spectrogramme personnalisé**
@@ -11,16 +17,32 @@
 compute(
   file, fs=0,
   q=0, n=0,
-  fcs=False,
+  fcs=[],
   nb_filters=0, fmin=0, fmax=0,
   filters=[], filters_fq=[],
   time_res=0, amp_res=0,
-  ax=None,
-  spec_only=False, spec_xlim=False
+  ax=None, plotd=True,
+  spec_only=False, spec_xlim=False, vmax=0,
+  drc_tl=False, drc_th=False, drc_r=False
 )
-
 # < rsegs, rfreqs, rseqs
 ```
+
+**Comparer plusieurs fichiers audios**
+```python
+compare(
+  files, folder="", format=".wav",
+  q=0, n=0,
+  fcs=[],
+  nb_filters=0, fmin=0, fmax=0,
+  filters=[], filters_fq=[],
+  time_res=0, amp_res=0,
+  plotd=True, scaled_y=False,
+  drc_tl=False, drc_th=False, drc_r=False
+)
+# < rseqs
+```
+
 **Traitement des données reçus par le microphone de l'ordinateur** *(nécessite pyaudio)*
 ```python
 live_record(filters, filters_fq, time_res, amp_res)
@@ -30,20 +52,37 @@ live_record(filters, filters_fq, time_res, amp_res)
 ```python
 plot_specamp(y, t, ax=None, title="Piste audio", color="darkblue")
 ```
+
+**Afficher le spectre db FS**
+```python
+plot_dbfs(y, t, ax=None, title="Piste audio", color="green")
+```
+
 **Afficher le spectrogramme**
 ```python
 plot_specgram(y, t, fs, ax=None)
+```
+## Compresseur audio
+**Appliquer un compresseur audio à un signal**
+```python
+drc(y, tl=False, th=False, ratio=1)
+# < yy
+```
+
+**Afficher la réponse linéaire d'un compresseur audio**
+```python
+drcz(tl=False, th=False, ratio=1, ax=None, title="Réponse linéaire")
 ```
 
 ## Filtres et banque de filtres
 **Générer un filtre**
 ```python
-bandpass(fc, q, n, fs, debug=False)
+bandpass(fc, q, n, fs, debug=False):
 # < filter, fc, fl, fh
 ```
 **Générer une banque de filtre**
 ```python
-gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=False, debug=False)
+gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=[], debug=False)
 # < filters, filters_fq
 ```
 **Afficher la réponse fréquentielle d'une banque de filtre**
@@ -79,7 +118,7 @@ plot_energies(signal, fs, dt, bits)
 ## Etude d'un signal
 **Générer les données du spectrogramme personnalisé**
 ```python
-gen_data(filtered, fs, time_res, amp_res, filters_fq)
+gen_data(filtered, fs, time_res, amp_res, filters_fq, vmax=0)
 # < rsegs, rfreqs, rseqs
 ```
 **Afficher le spectrogramme personnalisé**
@@ -88,14 +127,15 @@ plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=False)
 ```
 **Afficher le spectre d'amplitude ainsi que le spectrogramme personnalisé**
 ```python
-plot_data(y, t, rsegs, rfreqs, rseqs, ax=None)
+plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False)
 ```
 **Lire la valeur numérique d'un filtre à un instant donné**
 ```python
 state_at(filter_no, s, rsegs, rseqs, debug=False)
 # < state
 ```
-**Comparaison de différents fichiers audios**
+**Découpage en section**
 ```python
-compare(words, persons, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=False, nb_filters=0, q=0, n=0, filters=[], filters_fq=[])
+cut(rseqs)
+# < cseqs
 ```

@@ -1,4 +1,4 @@
-# Affiche le spectre d'amplitude
+# Affiche le spectre db FS
 # > y : Liste d'amplitudes
 # > t : Echelle temporelle
 # > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
