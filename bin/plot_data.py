@@ -5,6 +5,7 @@
 # > rfreqs : Liste de fréquences
 # > rseqs : Liste des séquence d'énergie
 # > [ax] : Figures à réutiliser
+# > [xlim] : Modifie les limites de l'axe des abscisses
 def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False):
     # Figure
     if type(ax) == type(None):

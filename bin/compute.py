@@ -32,13 +32,24 @@
 # Utilisation d'une figure déjà existante
 #    > [ax] : Surface de dessin existante (laisser vide pour créer une nouvelle figure)
 #
+# Modification de l'affichage
+#    > [plotd] : Affiche la figure sortante (activé par défaut)
+#    > [spec_only] : Affiche uniquement le spectrogramme
+#    > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
+#    > [vmax] : Modifie la valeur de référence du maxumum
+#
+# Compresseur audio
+#    > [drc_tl] : Seuil bas du compresseur audio
+#    > [drc_th] : Seuil haut du compresseur audio
+#    > [drc_r] : Ratio du compresseur audio
+#
 # < ax : Figure secondaire généré par la fonction gen_data
 # < y : Signal d'entrée
 # < t : Echelle temporelle
 # < rspectrum : Spectre généré par la fonction gen_data
 # < rfreqs : Liste de fréquences généré par la fonction gen_data
 # < rtime : Liste de points temporels généré par la fonction gen_data
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0, drc_tl=False, drc_th=False, drc_r=False):
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:
         fs, y = sw.read(file[0])
@@ -54,6 +65,10 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
         y = file
     N = len(y)
     t = np.linspace(0, N/fs, N)
+
+    #
+    if drc_r != False:
+        y = drc(y, tl=drc_tl, th=drc_th, ratio=drc_r)
 
     # Filtrage
     if ((nb_filters > 0) or (len(fcs) > 0)):

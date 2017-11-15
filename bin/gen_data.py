@@ -4,6 +4,7 @@
 # > time_res : Résolution temporelle
 # > amp_res : Résolution en amplitude
 # > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+# > [vmax] : Permet de changer la valeur de référence maximale (par défaut il s'agit de la valeur maximum de chaque signal filtré)
 # < rsegs : Liste des segments temporels
 # < rfreqs : Liste de fréquences
 # < rseqs : Liste des séquence d'énergie

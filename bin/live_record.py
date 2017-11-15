@@ -10,7 +10,7 @@
 def live_record(filters, filters_fq, time_res, amp_res):
     # Initialisation
     plt.ion()
-    f, ax = plt.subplots(2, 1, figsize=(24, 12), dpi= 80, facecolor="w", edgecolor="k")
+    f, ax = plt.subplots(3, 1, figsize=(24, 12), dpi= 80, facecolor="w", edgecolor="k")
     f.show()
 
     # Frames
@@ -45,6 +45,7 @@ def live_record(filters, filters_fq, time_res, amp_res):
         nfs, y = sw.read(src_out)
         ax[0].clear()
         ax[1].clear()
+        ax[2].clear()
         compute(file=src_out, filters=filters, filters_fq=filters_fq, time_res=time_res, amp_res=amp_res, ax=ax)
         # Affichage
         f.canvas.draw()
