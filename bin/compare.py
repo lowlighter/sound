@@ -28,7 +28,7 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
             time_res=time_res, amp_res=amp_res, spec_xlim=xlim, plotd=plotd,
             vmax=vmax,
             drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r,
-            formants=formants
+            formants=formants[:]
         )
         rseqs.append(rseq)
         mx = max(mx, len(rseq[0]))
