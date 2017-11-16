@@ -38,20 +38,21 @@ def plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=Fal
     }
 
     # Initialisation des formants
-    fmg = formants.pop(0)
-    highlights = []
-    # Parcours des voyelles données
-    for f in formants:
-        ffs = fformants[f]
-        # Parcours des formants
-        for ff in ffs:
-            # Parcours de la liste des fréquence de la banque de filtre
-            for rf in rfreqs:
-                # Ajout si compris dans la liste
-                if (rf > ff - fmg) and (rf < ff + fmg):
-                    highlights.append(rfreqs.index(rf))
+    if len(formants) > 0:
+        fmg = formants.pop(0)
+        highlights = []
+        # Parcours des voyelles données
+        for f in formants:
+            ffs = fformants[f]
+            # Parcours des formants
+            for ff in ffs:
+                # Parcours de la liste des fréquence de la banque de filtre
+                for rf in rfreqs:
+                    # Ajout si compris dans la liste
+                    if (rf > ff - fmg) and (rf < ff + fmg):
+                        highlights.append(rfreqs.index(rf))
 
-    # Affichage des lignes
-    for h in highlights:
-        ax.plot(X[0], [h+0.5]*len(X[0]), color="#1F77B4")
+        # Affichage des lignes
+        for h in highlights:
+            ax.plot(X[0], [h+0.5]*len(X[0]), color="#1F77B4")
     plt.show()
