@@ -12,12 +12,22 @@
 # > [debug] : Si actif, affiche les informations sur le filtre généré
 # < filters : Liste des filtres générés
 # < filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=[], debug=False):
+# > [scale] : Echelle à utiliser pour la génération des filtres ("log" ou "mel")
+def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=[], debug=False, scale="log"):
     # Initialisation
     filters = []; filters_fq = []
 
+    # Génération des fréquences centrales
     if len(fcs) == 0:
-        fcs = np.geomspace(fmin, fmax, nb_filters)
+        if scale == "mel":
+            m = 2585 * np.log10(1 + (fmin/700))
+            while True:
+                fcs.append(700 * ((10 ** (m/2595)) - 1))
+                m = m + 250
+                if fcs[-1] > fmax:
+                    break
+        else:
+            fcs = np.geomspace(fmin, fmax, nb_filters)
     # Création des filtres
     for fc in fcs:
         bp, fc, fl, fh = bandpass(fc, q, n, fs, debug)
