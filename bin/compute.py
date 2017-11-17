@@ -67,7 +67,7 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
     N = len(y)
     t = np.linspace(0, N/fs, N)
 
-    #
+    # Compresseur audio
     if drc_r != False:
         y = drc(y, tl=drc_tl, th=drc_th, ratio=drc_r)
 

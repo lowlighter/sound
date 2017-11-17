@@ -4,7 +4,6 @@
 # > filtered : Liste des signaux filtrés
 # > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
 # > [nsub] : Nombre de figures par ligne
-# > []
 def plot_fft(file, filters_fq, ax=None, title="Spectrogramme", xlim=False, formants=[], drc_tl=False, drc_th=False, drc_r=False):
     # Initialisation
     fs, y = sw.read(file)
