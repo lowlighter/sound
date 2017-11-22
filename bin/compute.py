@@ -36,6 +36,7 @@
 #    > [plotd] : Affiche la figure sortante (activé par défaut)
 #    > [spec_only] : Affiche uniquement le spectrogramme
 #    > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
+#    > [dbfs] : Affiche le spectre DB FS 
 #    > [vmax] : Modifie la valeur de référence du maxumum
 #    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
 #
@@ -50,15 +51,18 @@
 # < rspectrum : Spectre généré par la fonction gen_data
 # < rfreqs : Liste de fréquences généré par la fonction gen_data
 # < rtime : Liste de points temporels généré par la fonction gen_data
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0, drc_tl=False, drc_th=False, dbfs=True, drc_r=False, formants=[]):
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:
-        fs, y = sw.read(file[0])
-        y = np.array(y)
-        for i in range(1, len(file)):
-            d, noise = sw.read(file[i])
-            for j in range(0, min(len(y), len(noise))):
-                y[j] = y[j] + noise[j]
+        if (type(file[0]) == str):
+            fs, y = sw.read(file[0])
+            y = np.array(y)
+            for i in range(1, len(file)):
+                d, noise = sw.read(file[i])
+                for j in range(0, min(len(y), len(noise))):
+                    y[j] = y[j] + noise[j]
+        else:
+            y = file
     # Récupération du fichier audio
     elif type(file) == str:
         fs, y = sw.read(file)
@@ -82,5 +86,5 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
         if spec_only:
             plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim, formants=formants)
         else:
-            plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax, xlim=spec_xlim)
+            plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax, xlim=spec_xlim, dbfs=dbfs)
     return rsegs, rfreqs, rseqs
