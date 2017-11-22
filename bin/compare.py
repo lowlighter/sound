@@ -35,6 +35,6 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
 
     for i in range(len(rseqs)):
         for j in range(len(rseqs[i])):
-            rseqs[i][j].resize(mx)
-
+            np.resize(rseqs[i][j], (mx,))
+            
     return rseqs
