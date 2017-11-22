@@ -86,5 +86,5 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
         if spec_only:
             plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim, formants=formants)
         else:
-            plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax, xlim=spec_xlim, dbfs=dbfs)
+            plot_data(y, t, rsegs, rfreqs, rseqs, ax=ax, xlim=spec_xlim, dbfs=dbfs, formants=formants)
     return rsegs, rfreqs, rseqs

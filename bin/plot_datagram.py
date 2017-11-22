@@ -27,5 +27,5 @@ def plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=Fal
 
     # Formants
     if len(formants) > 0:
-        plot_formants(formants, rfreqs, ax, X[0])
+        plot_formants(formants, rfreqs, ax, rsegs)
     plt.show()

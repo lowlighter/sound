@@ -3,7 +3,7 @@
 # > rfreqs : Liste de fréquences
 # > ax : Figures à utiliser
 # > xlim : Valeur maximum des abscisses
-def plot_formants(formants, rfreqs, ax, X):
+def plot_formants(formants, rfreqs, ax, rsegs):
     # Liste des formants
     fformants = {
         "ou":[320, 800],
@@ -18,7 +18,7 @@ def plot_formants(formants, rfreqs, ax, X):
     }
 
     # Initialisation des formants
-    fmg = formants.pop(0)
+    fmg = int(formants.pop(0))
     highlights = []
     # Parcours des voyelles données
     for f in formants:
@@ -33,4 +33,4 @@ def plot_formants(formants, rfreqs, ax, X):
 
     # Affichage des lignes
     for h in highlights:
-        ax.plot(X, [h+0.5]*len(X), color="#1F77B4")
+        ax.plot(rsegs, [h+0.5]*len(rsegs), color="#1F77B4")
