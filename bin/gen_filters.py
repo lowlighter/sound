@@ -24,7 +24,9 @@ def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=[], debug=Fals
             while True:
                 fcs.append(700 * ((10 ** (m/2595)) - 1))
                 m = m + 250
-                if fcs[-1] > fmax:
+                if fcs[-1] >= fmax:
+                    if (fcs[-1] > fmax):
+                        fcs.pop()
                     break
         else:
             fcs = np.geomspace(fmin, fmax, nb_filters)

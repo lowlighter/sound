@@ -6,6 +6,7 @@
 # > rseqs : Liste des séquence d'énergie
 # > [ax] : Figures à réutiliser
 # > [xlim] : Modifie les limites de l'axe des abscisses
+# > [dbfs] : Affiche le spectre dbfs
 # > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
 def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False, dbfs=True, formants=[]):
     # Figure

@@ -36,8 +36,7 @@
 #    > [plotd] : Affiche la figure sortante (activé par défaut)
 #    > [spec_only] : Affiche uniquement le spectrogramme
 #    > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
-#    > [dbfs] : Affiche le spectre DB FS 
-#    > [vmax] : Modifie la valeur de référence du maxumum
+#    > [dbfs] : Affiche le spectre DB FS
 #    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
 #
 # Compresseur audio
@@ -51,7 +50,7 @@
 # < rspectrum : Spectre généré par la fonction gen_data
 # < rfreqs : Liste de fréquences généré par la fonction gen_data
 # < rtime : Liste de points temporels généré par la fonction gen_data
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, spec_only=False, spec_xlim=False, vmax=0, drc_tl=False, drc_th=False, dbfs=True, drc_r=False, formants=[]):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, dbfs=False, spec_only=False, spec_xlim=False, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:
         if (type(file[0]) == str):
@@ -81,7 +80,7 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
     filtered = gen_filtered(y, fs, filters)
 
     # Spectrogramme
-    rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq, vmax=vmax)
+    rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq)
     if plotd:
         if spec_only:
             plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim, formants=formants)
