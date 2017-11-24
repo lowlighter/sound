@@ -6,22 +6,27 @@
 # > amp_res : Résolution en amplitude
 # > [fs] : Fréquence d'échantillonage
 # > [last] : Nombre de sécondes visionnées par l'enregistrement
-def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False):
+# > [duration] : Durée d'enregistrement par paquet (une valeur trop faible risque de fausser les données dans le sens où le microphone récupère des données plus vite qu'elles ne sont traitées)
+# > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+# > [drc_tl] : Seuil bas du compresseur audio
+# > [drc_th] : Seuil haut du compresseur audio
+# > [drc_r] : Ratio du compresseur audio
+def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25):
     # Durée de l'enregistrement
-    duration = 0.25
+    duration = 0.1
     # Taille des blocs enregistrés
     chunk_size = 1024
-    
+
     # Initialisation
     plt.ion()
     f, ax = plt.subplots(2, 1, figsize=(24, 12), dpi= 80, facecolor="w", edgecolor="k")
     f.show()
-    
+
     # Initialisation
     rfreqs = []
     for i in range(len(filters_fq)):
         rfreqs.append(filters_fq[i]["fc"])
-    
+
     # Ouverture du flux
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paInt16, channels=1, rate=fs, input=True, frames_per_buffer=chunk_size)
@@ -43,14 +48,14 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
                 plot_formants(np.array(formants, copy=True).tolist(), rfreqs, ax[1], rsegs)
             # Affichage
             f.canvas.draw()
-        
+
     # Masque l'erreur en cas d'interruption du Kernel
     except KeyboardInterrupt:
         # Fermeture du flux
         stream.stop_stream()
         stream.close()
         p.terminate()
-        clear_output() 
-        print("Terminé !") 
+        clear_output()
+        print("Terminé !")
         quit
     return
