@@ -8,8 +8,9 @@
 # > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
 # > [debug] : Permet de suivre l'éxécution du programme
 # > [show_predictions] : Afficher les prédictions
+# > [neurons] : Nombre de couches et de neuronnes
 # < clf : Classificateur
-def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False):
+def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, neurons=(100)):
     # Debug
     if debug:
         sys.stdout.write("Préparation des fichiers à traiter...\n")
@@ -103,10 +104,10 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.flush()
         sys.stdout.write("\nApprentissage...\n")
         sys.stdout.flush()
-        
+
     # Mise en place du réseau neuronal
     X, lg = to1D(learnset)
-    clf = MLPClassifier(hidden_layer_sizes=(100))
+    clf = MLPClassifier(hidden_layer_sizes=neurons)
     clf.fit(X, y)
 
     # Debug
