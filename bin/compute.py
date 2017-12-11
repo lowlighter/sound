@@ -47,9 +47,9 @@
 # < ax : Figure secondaire généré par la fonction gen_data
 # < y : Signal d'entrée
 # < t : Echelle temporelle
-# < rspectrum : Spectre généré par la fonction gen_data
-# < rfreqs : Liste de fréquences généré par la fonction gen_data
-# < rtime : Liste de points temporels généré par la fonction gen_data
+# < rsegs : Liste des segments temporels
+# < rfreqs : Liste de fréquences
+# < rseqs : Liste des séquence d'énergie
 def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, dbfs=False, spec_only=False, spec_xlim=False, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:

@@ -1,9 +1,9 @@
 # Génère un sinus dans un fichier audio
-# [f] : Fréquence du sinus
-# [duration] : Durée de l'enregistrement
-# [volume] : Volume (influe sur l'amplitude)
-# [fs] : Fréquence d'échantillonage
-# [src_out] : Nom du fichier à générer
+# > [f] : Fréquence du sinus
+# > [duration] : Durée de l'enregistrement
+# > [volume] : Volume (influe sur l'amplitude)
+# > [fs] : Fréquence d'échantillonage
+# > [src_out] : Nom du fichier à générer
 def gen_sine(f=440.0, duration=1.0, volume=1, fs=48000, src_out="src/sine.wav"):
     # Initialisation
     x = np.arange(fs * duration)

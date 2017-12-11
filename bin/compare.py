@@ -3,6 +3,7 @@
 # > files : Liste des fichiers à comparer
 # > folder : Préfixe du dossier
 # > [format] : Format des fichiers
+# < rseqs : Liste des séquences d'énergie
 def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], plotd=True, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
     # Initialisation
     rseqs = []
@@ -30,5 +31,5 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
     for i in range(len(rseqs)):
         for j in range(len(rseqs[i])):
             np.resize(rseqs[i][j], (mx,))
-            
+
     return rseqs
