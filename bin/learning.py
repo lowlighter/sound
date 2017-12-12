@@ -10,7 +10,7 @@
 # > [show_predictions] : Afficher les prédictions
 # > [neurons] : Nombre de couches et de neuronnes
 # < clf : Classificateur
-def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, neurons=(100)):
+def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, neurons=(100)):
     # Debug
     if debug:
         sys.stdout.write("Préparation des fichiers à traiter...\n")
@@ -128,5 +128,33 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.write("\nRapport détaillé du classificateur :\n")
         sys.stdout.flush()
         print(classification_report(yy, predictions))
+
+    if confusion:
+        # Matrice de confusion
+        f, ax = plt.subplots(1, 2, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
+        confusions = []
+        confusions.append(confusion_matrix(yy, predictions))
+        confusions.append(confusions[0].astype("float") / confusions[0].sum(axis=1)[:, np.newaxis])
+        # Affichage
+        for i in range(len(confusions)):
+            #Titre et affichage
+            ax[i].imshow(confusions[i], interpolation="nearest", cmap=plt.cm.Blues)
+            ax[i].set_title("Matrice de confusion (normalisée)" if (i > 0) else "Matrice de confusion")
+
+            # Ticks
+            tick_marks = np.arange(len(names_test))
+            ax[i].set_xticks(tick_marks)
+            ax[i].get_xaxis().set_ticklabels(names_test, rotation=45)
+            ax[i].set_yticks(tick_marks)
+            ax[i].get_yaxis().set_ticklabels(names_test)
+            ax[i].set_ylabel("Valeur")
+            ax[i].set_xlabel("Prédiction")
+
+            # Valeurs
+            fmt = '.2f' if (i > 0) else 'd'
+            thresh = confusions[i].max() / 2.
+            for j, k in itertools.product(range(confusions[i].shape[0]), range(confusions[i].shape[1])):
+                ax[i].text(k, j, format(confusions[i][k, j], fmt), horizontalalignment="center", color="white" if confusions[i][j, k] > thresh else "black")
+        plt.show()
 
     return clf

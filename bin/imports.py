@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.ticker as ticker
 import scipy.io.wavfile as sw
+import itertools
 import math
 import re
 import sys
