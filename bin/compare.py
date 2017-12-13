@@ -1,10 +1,11 @@
-# Permet de comparer plusieurs fichiers audios
-# (Voir la documentation de la fonction compute)
-# > files : Liste des fichiers à comparer
-# > folder : Préfixe du dossier
-# > [format] : Format des fichiers
-# < rseqs : Liste des séquences d'énergie
-def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], plotd=True, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
+def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], plotd=True, drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
+    """
+    Permet de comparer plusieurs fichiers audios (voir la documentation de la fonction compute)
+    > files : Liste des fichiers à comparer
+    > folder : Préfixe du dossier
+    > [format] : Format des fichiers
+    < rseqs : Liste des séquences d'énergie
+    """
     # Initialisation
     rseqs = []
     for i in range(len(files)): files[i] = folder + files[i] + format
@@ -23,7 +24,8 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
             filters=filters, filters_fq=filters_fq,
             time_res=time_res, amp_res=amp_res, spec_xlim=xlim, plotd=plotd,
             drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r,
-            formants=formants[:]
+            formants=formants[:],
+            adc_res=adc_res
         )
         rseqs.append(rseq)
         mx = max(mx, len(rseq[0]))

@@ -1,5 +1,5 @@
 ## Etude de la détection automatique de caractéristiques sur un signal audio
-![Démonstration](src/demo.png)
+![Démonstration](src/imgs/demo.png)
 
 ## [Cliquez ici pour lire le compte-rendu en ligne](/Compte-rendu.ipynb).
 
@@ -17,11 +17,13 @@ Vous trouverez ci-dessous une liste contenant les différentes fonctions implém
 | [plot_specamp](https://github.com/lowlighter/sound/blob/master/bin/plot_specamp.py) | Spectre d'amplitude |
 | [plot_dbfs](https://github.com/lowlighter/sound/blob/master/bin/plot_dbfs.py) | Spectre dB FS |
 | [plot_specgram](https://github.com/lowlighter/sound/blob/master/bin/plot_specgram.py) | Spectrogramme |
-| [plot_fft](https://github.com/lowlighter/sound/blob/master/bin/plot_fft.py) | FFT |
+| [plot_nspecgram](https://github.com/lowlighter/sound/blob/master/bin/plot_fft.py) | Spectrogramme natif |
 | [plot_formants](https://github.com/lowlighter/sound/blob/master/bin/plot_formatns.py) | Ajoute les formants connus sur une figure existante |
 || **Compresseur audio** |
 | [drc](https://github.com/lowlighter/sound/blob/master/bin/drc.py) | Applique un compresseur audio à un signal |
 | [drcz](https://github.com/lowlighter/sound/blob/master/bin/drcz.py) | Réponse linéaire d'un compresseur audio |
+|| **Convertisseur analogique numérique** |
+| [adc](https://github.com/lowlighter/sound/blob/master/bin/adc.py) | Numérise un signal |
 || **Filtres et banque de filtres** |
 | [bandpass](https://github.com/lowlighter/sound/blob/master/bin/bandpass.py) | Génère un filtre |
 | [gen_filters](https://github.com/lowlighter/sound/blob/master/bin/gen_filters.py) | Génère une banque de filtre |

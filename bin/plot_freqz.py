@@ -1,6 +1,8 @@
-# Affiche la réponse fréquentielle d'une banque de filtre
-# > filters : Banque de filtres
 def plot_freqz(filters):
+    """
+    Affiche la réponse fréquentielle d'une banque de filtre
+    > filters : Banque de filtres
+    """
     # Figure
     plt.figure(figsize=(12, 6), dpi= 80, facecolor="w", edgecolor="k")
     for i in range(len(filters)):

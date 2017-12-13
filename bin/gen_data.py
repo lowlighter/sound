@@ -1,13 +1,15 @@
-# Calcul du spectrogramme
-# > filtered : Liste de signaux filtrés
-# > fs : Fréquence d'échantillonage
-# > time_res : Résolution temporelle
-# > amp_res : Résolution en amplitude
-# > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-# < rsegs : Liste des segments temporels
-# < rfreqs : Liste de fréquences
-# < rseqs : Liste des séquence d'énergie
 def gen_data(filtered, fs, time_res, amp_res, filters_fq):
+    """
+    Calcul du spectrogramme
+    > filtered : Liste de signaux filtrés
+    > fs : Fréquence d'échantillonage
+    > time_res : Résolution temporelle
+    > amp_res : Résolution en amplitude
+    > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    < rsegs : Liste des segments temporels
+    < rfreqs : Liste de fréquences
+    < rseqs : Liste des séquence d'énergie
+    """
     # Initialisation
     rsegs = [] ; rseqs = [] ; rfreqs = []
     # Spectrogramme

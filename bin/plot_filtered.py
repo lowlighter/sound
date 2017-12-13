@@ -1,10 +1,12 @@
-# Affiche les signaux après filtrage
-# > y : Signal original
-# > t : Echelle temporelle
-# > filtered : Liste des signaux filtrés
-# > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-# > [nsub] : Nombre de figures par ligne
 def plot_filtered(y, t, filtered, filters_fq, nsub=4):
+    """
+    Affiche les signaux après filtrage
+    > y : Signal original
+    > t : Echelle temporelle
+    > filtered : Liste des signaux filtrés
+    > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    > [nsub] : Nombre de figures par ligne
+    """
     # Initialisation
     nl = True; j = 0
     # Affichage

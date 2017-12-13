@@ -1,56 +1,55 @@
-# Exécute le code dans sa totalité.
-# Cette fonction peut peut être utilisé de plusieurs façons avant d'optimiser les temps de calculs.
-#
-# Sélection de la source
-#    > file : Source du fichier à ouvrir (string)
-#    OU
-#    > file : Tableau contenant la source du fichier à ouvrir et d'autres références vers des sources de bruits
-#    OU
-#    > file : Signal d'entrée (liste d'amplitudes)
-#    > fs : Fréquence d'échantillonage
-#
-# Sélection de la banque de filtres
-#    > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
-#    > filters_fq : Données caractéristiques des filtres déjà générés
-#    OU
-#    > fmin : Fréquence minimum
-#    > fmax : Fréquence maximum
-#    > nb_filters : Nombre de filtres
-#    > q : Facteur de qualité
-#    > n : Ordre du filtre
-#    OU
-#    > fcs : Liste de fréquences centrales personnalisées
-#    > q : Facteur de qualité
-#    > n : Ordre du filtre
-#
-# Configuration du spectrogramme
-#    > time_res : Résolution temporelle
-#    > amp_res : Résolution en amplitude
-#    > [spec_only] : Afficher uniquement le spectrogramme (indiquer le titre)
-#    > [spec_xlim] : Limite en abscisse du spectrogramme
-#
-# Utilisation d'une figure déjà existante
-#    > [ax] : Surface de dessin existante (laisser vide pour créer une nouvelle figure)
-#
-# Modification de l'affichage
-#    > [plotd] : Affiche la figure sortante (activé par défaut)
-#    > [spec_only] : Affiche uniquement le spectrogramme
-#    > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
-#    > [dbfs] : Affiche le spectre DB FS
-#    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-#
-# Compresseur audio
-#    > [drc_tl] : Seuil bas du compresseur audio
-#    > [drc_th] : Seuil haut du compresseur audio
-#    > [drc_r] : Ratio du compresseur audio
-#
-# < ax : Figure secondaire généré par la fonction gen_data
-# < y : Signal d'entrée
-# < t : Echelle temporelle
-# < rsegs : Liste des segments temporels
-# < rfreqs : Liste de fréquences
-# < rseqs : Liste des séquence d'énergie
-def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, dbfs=False, spec_only=False, spec_xlim=False, drc_tl=False, drc_th=False, drc_r=False, formants=[]):
+def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, dbfs=False, spec_only=False, spec_xlim=False, drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
+    """
+    Exécute le code dans sa totalité.
+    Cette fonction peut peut être utilisé de plusieurs façons avant d'optimiser les temps de calculs.
+
+    Sélection de la source
+        > file : Source du fichier à ouvrir (string)
+        OU
+        > file : Signal d'entrée (liste d'amplitudes)
+        > fs : Fréquence d'échantillonage
+
+    Compresseur audio
+        > [drc_tl] : Seuil bas du compresseur audio
+        > [drc_th] : Seuil haut du compresseur audio
+        > [drc_r] : Ratio du compresseur audio
+
+    Convertisseur analogique numérique
+        > [adc_res] : Résolution du CAN
+
+    Sélection de la banque de filtres
+        > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
+        > filters_fq : Données caractéristiques des filtres déjà générés
+        OU
+        > fmin : Fréquence minimum
+        > fmax : Fréquence maximum
+        > nb_filters : Nombre de filtres
+        > q : Facteur de qualité
+        > n : Ordre du filtre
+        OU
+        > fcs : Liste de fréquences centrales personnalisées
+        > q : Facteur de qualité
+        > n : Ordre du filtre
+
+    Configuration du spectrogramme
+        > time_res : Résolution temporelle
+        > amp_res : Résolution en amplitude
+
+    Modification de l'affichage
+        > [ax] : Surface de dessin existante (laisser vide pour créer une nouvelle figure)
+        > [plotd] : Affiche la figure sortante (activé par défaut)
+        > [spec_only] : Affiche uniquement le spectrogramme
+        > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
+        > [dbfs] : Affiche le spectre DB FS
+        > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+        
+    < ax : Figure secondaire généré par la fonction gen_data
+    < y : Signal d'entrée
+    < t : Echelle temporelle
+    < rsegs : Liste des segments temporels
+    < rfreqs : Liste de fréquences
+    < rseqs : Liste des séquence d'énergie
+    """
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:
         if (type(file[0]) == str):
@@ -73,6 +72,9 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
     # Compresseur audio
     if drc_r != False:
         y = drc(y, tl=drc_tl, th=drc_th, ratio=drc_r)
+
+    # Convertisseur analogique numérique
+    y = adc(y, adc_res)
 
     # Filtrage
     if ((nb_filters > 0) or (len(fcs) > 0)):

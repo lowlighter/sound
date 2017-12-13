@@ -1,11 +1,13 @@
-# Calcule l'énergie contenue dans un signal segmenté par une certaine résolution temporelle
-# > signal : Signal
-# > fs : Fréquence d'échantillonage
-# > dt : Résolution temporelle (Celle-ci doit évidemment pouvoir être satisfaire par la valeur de fs)
-# > [bits] : Nombre de bits sur lequel est codé la valeur
-# < segs : Segments temporelles
-# < seqs : Energie contenue dans chaque segment temporel
 def energies(signal, fs, dt, bits=False):
+    """
+    Calcule l'énergie contenue dans un signal segmenté par une certaine résolution temporelle
+    > signal : Signal
+    > fs : Fréquence d'échantillonage
+    > dt : Résolution temporelle (Celle-ci doit évidemment pouvoir être satisfaire par la valeur de fs)
+    > [bits] : Nombre de bits sur lequel est codé la valeur
+    < segs : Segments temporelles
+    < seqs : Energie contenue dans chaque segment temporel
+    """
     # Energie
     seqs = []
     segs = np.arange(0, len(signal)/fs, dt)

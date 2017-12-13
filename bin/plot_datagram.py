@@ -1,12 +1,14 @@
-# Affiche le spectrogramme personnalisable
-# > rsegs : Liste des segments temporels
-# > rfreqs : Liste de fréquences
-# > rseqs : Liste des séquence d'énergie
-# > [ax] : Figures à réutiliser
-# > [title] : Titre
-# > [xlim] : Limite en abscisse
-# > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
 def plot_datagram(rsegs, rfreqs, rseqs, ax=None, title="Spectrogramme", xlim=False, formants=[]):
+    """
+    Affiche le spectrogramme personnalisable
+    > rsegs : Liste des segments temporels
+    > rfreqs : Liste de fréquences
+    > rseqs : Liste des séquence d'énergie
+    > [ax] : Figures à réutiliser
+    > [title] : Titre
+    > [xlim] : Limite en abscisse
+    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+    """
     # Affichage
     freqs = np.arange(len(rfreqs)+1)
     if type(ax) == type(None):

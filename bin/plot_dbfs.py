@@ -1,10 +1,12 @@
-# Affiche le spectre db FS
-# > y : Liste d'amplitudes
-# > t : Echelle temporelle
-# > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
-# > [title] : Titre
-# > [color] : Couleur
 def plot_dbfs(y, t, ax=None, title="Piste audio", color="green"):
+    """
+    Affiche le spectre db FS
+    > y : Liste d'amplitudes
+    > t : Echelle temporelle
+    > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
+    > [title] : Titre
+    > [color] : Couleur
+    """
     if type(ax) == type(None):
         plt.figure(figsize=(12, 4), dpi= 80, facecolor="w", edgecolor="k")
         ax = plt.subplot(111)

@@ -1,16 +1,18 @@
-# Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données
-# > learn : Liste de noms formattable des échantillons d'apprentissage
-# > test : Liste de noms formattable des échantillons de test
-# > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
-# > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
-# > [folder_learn] : Dossier contenant les échantillons d'apprentissage
-# > [folder_test] : Dossier contenant les échantillons de tests
-# > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
-# > [debug] : Permet de suivre l'éxécution du programme
-# > [show_predictions] : Afficher les prédictions
-# > [neurons] : Nombre de couches et de neuronnes
-# < clf : Classificateur
 def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, neurons=(100)):
+    """
+    Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données
+    > learn : Liste de noms formattable des échantillons d'apprentissage
+    > test : Liste de noms formattable des échantillons de test
+    > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
+    > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
+    > [folder_learn] : Dossier contenant les échantillons d'apprentissage
+    > [folder_test] : Dossier contenant les échantillons de tests
+    > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
+    > [debug] : Permet de suivre l'éxécution du programme
+    > [show_predictions] : Afficher les prédictions
+    > [neurons] : Nombre de couches et de neuronnes
+    < clf_predict : Racourci fonctions qui prend en unique paramètre une liste de fichiers et qui prédit la sortie avec la même configuration
+    """
     # Debug
     if debug:
         sys.stdout.write("Préparation des fichiers à traiter...\n")
@@ -67,6 +69,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         drc_r=(options["drc_r"] if "drc_r" in options else False),
         formants=(options["formants"] if "formants" in options else []),
         format=(options["format"] if "format" in options else ".wav"),
+        adc_res=(options["adc_res"] if "adc_res" in options else 16),
         plotd=False
     );
 
@@ -95,6 +98,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         drc_r=(options["drc_r"] if "drc_r" in options else False),
         formants=(options["formants"] if "formants" in options else []),
         format=(options["format"] if "format" in options else ".wav"),
+        adc_res=(options["adc_res"] if "adc_res" in options else 16),
         plotd=False
     );
 
@@ -157,4 +161,10 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
                 ax[i].text(k, j, format(confusions[i][k, j], fmt), horizontalalignment="center", color="white" if confusions[i][j, k] > thresh else "black")
         plt.show()
 
-    return clf
+    # Fonction anonyme qui permet de continuer à tester le réseau de neurones
+    def anonymous(nfiles):
+        compared = compare(folder=folder_test, files=nfiles, time_res=(options["time_res"] if "time_res" in options else 0), amp_res=(options["amp_res"] if "amp_res" in options else 0), fmin=(options["fmin"] if "fmin" in options else 0), fmax=(options["fmax"] if "fmax" in options else 0), nb_filters=(options["nb_filters"] if "nb_filters" in options else 0), q=(options["q"] if "q" in options else 0), n=(options["n"] if "n" in options else 0), fcs=(options["fcs"] if "fcs" in options else []), filters=(options["filters"] if "filters" in options else []), filters_fq=(options["filters_fq"] if "filters_fq" in options else []), drc_tl=(options["drc_tl"] if "drc_tl" in options else False), drc_th=(options["drc_th"] if "drc_th" in options else False), drc_r=(options["drc_r"] if "drc_r" in options else False), formants=(options["formants"] if "formants" in options else []), format=(options["format"] if "format" in options else ".wav"), adc_res=(options["adc_res"] if "adc_res" in options else 16), plotd=False)
+        XXX, _ = to1D(compared, length=lg)
+        print(clf.predict(XXX))
+
+    return lambda nfiles: anonymous(nfiles)

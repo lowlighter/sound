@@ -1,9 +1,11 @@
-# Affiche les formants sur une figure déjà existante
-# > formants : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-# > rfreqs : Liste de fréquences
-# > ax : Figures à utiliser
-# > xlim : Valeur maximum des abscisses
 def plot_formants(formants, rfreqs, ax, rsegs):
+    """
+    Affiche les formants sur une figure déjà existante
+    > formants : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+    > rfreqs : Liste de fréquences
+    > ax : Figures à utiliser
+    > xlim : Valeur maximum des abscisses
+    """
     # Liste des formants
     fformants = {
         "ou":[320, 800],

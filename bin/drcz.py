@@ -1,10 +1,12 @@
-# Affiche la réponse impulsionnelle d'un compresseur audio
-# > [tl] : Seuil bas, compris entre 0 et 1 (mettre à False pour désactiver)
-# > [th] : Seuil haut, compris entre 0 et 1 (mettre à False pour désactiver)
-# > [ratio] : Ratio
-# > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
-# > [title] : Titre
 def drcz(tl=False, th=False, ratio=1, ax=None, title="Réponse linéaire"):
+    """
+    Affiche la réponse impulsionnelle d'un compresseur audio
+    > [tl] : Seuil bas, compris entre 0 et 1 (mettre à False pour désactiver)
+    > [th] : Seuil haut, compris entre 0 et 1 (mettre à False pour désactiver)
+    > [ratio] : Ratio
+    > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
+    > [title] : Titre
+    """
     pts = 10000
     xx = np.arange(0, pts)
     if type(ax) == type(None):

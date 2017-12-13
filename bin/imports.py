@@ -11,7 +11,7 @@ import re
 import sys
 import IPython.display as ipd
 from scipy import signal
-from scipy.signal import butter, lfilter
+from scipy.signal import butter, lfilter, firwin
 from operator import add
 from matplotlib.widgets import Slider
 from sklearn.neural_network import MLPClassifier

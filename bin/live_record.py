@@ -1,17 +1,20 @@
-# Commence un enregistrement vocal live
-# Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable
-# > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
-# > filters_fq : Données caractéristiques des filtres déjà générés
-# > time_res : Résolution temporelle
-# > amp_res : Résolution en amplitude
-# > [fs] : Fréquence d'échantillonage
-# > [last] : Nombre de sécondes visionnées par l'enregistrement
-# > [duration] : Durée d'enregistrement par paquet (une valeur trop faible risque de fausser les données dans le sens où le microphone récupère des données plus vite qu'elles ne sont traitées)
-# > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-# > [drc_tl] : Seuil bas du compresseur audio
-# > [drc_th] : Seuil haut du compresseur audio
-# > [drc_r] : Ratio du compresseur audio
-def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25):
+def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25, adc_res=16):
+    """
+    Commence un enregistrement vocal live
+    Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable
+    > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
+    > filters_fq : Données caractéristiques des filtres déjà générés
+    > time_res : Résolution temporelle
+    > amp_res : Résolution en amplitude
+    > [fs] : Fréquence d'échantillonage
+    > [last] : Nombre de sécondes visionnées par l'enregistrement
+    > [duration] : Durée d'enregistrement par paquet (une valeur trop faible risque de fausser les données dans le sens où le microphone récupère des données plus vite qu'elles ne sont traitées)
+    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+    > [drc_tl] : Seuil bas du compresseur audio
+    > [drc_th] : Seuil haut du compresseur audio
+    > [drc_r] : Ratio du compresseur audio
+    > [adc_res] : Résolution du CAN
+    """
     # Durée de l'enregistrement
     duration = 0.1
     # Taille des blocs enregistrés
@@ -43,7 +46,7 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
             frames = frames[-int(fs * last):]
             # Traitement
             ax[0].clear() ; ax[1].clear()
-            rsegs, _, _ = compute(file=frames, fs=fs, filters=filters, filters_fq=filters_fq, time_res=time_res, amp_res=amp_res, ax=ax, dbfs=False, drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r)
+            rsegs, _, _ = compute(file=frames, fs=fs, filters=filters, filters_fq=filters_fq, time_res=time_res, amp_res=amp_res, ax=ax, dbfs=False, drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r, adc_res=adc_res)
             if len(formants) > 0:
                 plot_formants(np.array(formants, copy=True).tolist(), rfreqs, ax[1], rsegs)
             # Affichage

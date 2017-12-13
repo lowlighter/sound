@@ -1,9 +1,11 @@
-# Calcul le coefficient de corrélation entre deux signaux en sorties de la fonction compare.
-# > a : Premier spectrogramme
-# > b : Second spectrogramme
-# > [debug] : Texte de debug
-# < v : Coefficient de corrélation
 def similarities(compared, names):
+    """
+    Calcul le coefficient de corrélation entre deux signaux en sorties de la fonction compare.
+    > a : Premier spectrogramme
+    > b : Second spectrogramme
+    > [debug] : Texte de debug
+    < v : Coefficient de corrélation
+    """
     # Initialisation
     for i in range(len(compared)-1):
         for j in range(i+1, len(compared)):
