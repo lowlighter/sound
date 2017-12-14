@@ -15,4 +15,6 @@ from scipy.signal import butter, lfilter, firwin
 from operator import add
 from matplotlib.widgets import Slider
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, precision_score
+from ipywidgets import FloatProgress
+from IPython.display import display

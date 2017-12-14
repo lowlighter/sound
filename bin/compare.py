@@ -7,17 +7,17 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
     < rseqs : Liste des séquences d'énergie
     """
     # Initialisation
-    rseqs = []
-    for i in range(len(files)): files[i] = folder + files[i] + format
+    rseqs = [] ; nfiles = []
+    for i in range(len(files)): nfiles.append(folder + files[i] + format)
     # Durée du fichier le plus long
     xlim = 0
-    for file in files:
+    for file in nfiles:
         fs, y = sw.read(file)
         xlim = max(xlim, len(y)/fs-time_res)
 
     # Traitement
     mx = 0
-    for file in files:
+    for file in nfiles:
         d, d, rseq = compute(
             file=file, spec_only=file,
             q=q, n=n, fcs=fcs, nb_filters=nb_filters, fmin=fmin, fmax=fmax,

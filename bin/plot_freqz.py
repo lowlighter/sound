@@ -1,4 +1,4 @@
-def plot_freqz(filters):
+def plot_freqz(filters, fs):
     """
     Affiche la réponse fréquentielle d'une banque de filtre
     > filters : Banque de filtres

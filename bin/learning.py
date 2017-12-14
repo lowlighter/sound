@@ -1,10 +1,12 @@
-def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, neurons=(100)):
+def learning(learn=[], test=[], learn_i=[], test_i=[], _learn=[], _test=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, benchmark_only=False, neurons=(100), progress=False):
     """
     Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données
     > learn : Liste de noms formattable des échantillons d'apprentissage
     > test : Liste de noms formattable des échantillons de test
     > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
     > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
+    > [_learn] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres learn et learn_i sont faculatifs)
+    > [_test] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres test et test_i sont faculatifs)
     > [folder_learn] : Dossier contenant les échantillons d'apprentissage
     > [folder_test] : Dossier contenant les échantillons de tests
     > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
@@ -19,27 +21,20 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.flush()
 
     # Récupération des fichiers d'apprentissage
-    files_learn = []
-    names_learn = []
-    y = []
-    for i in range(len(learn)):
-        names_learn.append(re.search("^[a-z _]+", learn[i], flags=re.IGNORECASE).group(0))
-        y = y + ([names_learn[-1]] * learn_i[i])
-        for j in range(1, learn_i[i]+1):
-            files_learn.append(learn[i].format(i=j))
+    if (len(_learn) == 0):
+        files_learn, names_learn, y = learning_files(files=learn, files_i=learn_i)
+    else:
+        files_learn = _learn[0]; names_learn =  _learn[1] ; y = _learn[2]
+
     if debug:
         sys.stdout.write("  {n:4} fichiers d'apprentissage récupérés\n".format(n=len(files_learn)))
         sys.stdout.flush()
 
     # Récupération des fichiers de tests
-    files_test = []
-    names_test = []
-    yy = []
-    for i in range(len(test)):
-        names_test.append(re.search("^[a-z _]+", test[i], flags=re.IGNORECASE).group(0))
-        yy = yy + ([names_test[-1]] * test_i[i])
-        for j in range(1, test_i[i]+1):
-            files_test.append(test[i].format(i=j))
+    if (len(_test) == 0):
+        files_test, names_test, yy = learning_files(files=test, files_i=test_i)
+    else:
+        files_test = _test[0]; names_test = _test[1] ; yy = _test[2]
 
     # Debug
     if debug:
@@ -49,6 +44,9 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.flush()
         sys.stdout.write("\nAcquisition des données...")
         sys.stdout.flush()
+    # Progression
+    if progress:
+        progress[0].value += progress[1]/5
 
     # Données d'apprentissage
     learnset = compare(
@@ -77,6 +75,9 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
     if debug:
         sys.stdout.write("  {n:4} fichiers d'apprentissage traités\n".format(n=len(files_learn)))
         sys.stdout.flush()
+    # Progression
+    if progress:
+        progress[0].value += progress[1]/5
 
 
     # Données de test
@@ -108,6 +109,9 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.flush()
         sys.stdout.write("\nApprentissage...\n")
         sys.stdout.flush()
+    # Progression
+    if progress:
+        progress[0].value += progress[1]/5
 
     # Mise en place du réseau neuronal
     X, lg = to1D(learnset)
@@ -118,6 +122,9 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
     if debug:
         sys.stdout.write("  {n:4} fichiers utilisés\n".format(n=len(files_learn)))
         sys.stdout.flush()
+    # Progression
+    if progress:
+        progress[0].value += progress[1]/5
 
     # Prédictions
     XX, _ = to1D(testset, length=lg)
@@ -132,7 +139,15 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], folder_learn="src/learnin
         sys.stdout.write("\nRapport détaillé du classificateur :\n")
         sys.stdout.flush()
         print(classification_report(yy, predictions))
+    # Progression
+    if progress:
+        progress[0].value += progress[1]/5
 
+    # Rapport de classification
+    if benchmark_only:
+        return precision_score(yy, predictions, average="micro")
+
+    # Matrice de confusion
     if confusion:
         # Matrice de confusion
         f, ax = plt.subplots(1, 2, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
