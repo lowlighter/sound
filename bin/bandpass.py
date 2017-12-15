@@ -17,12 +17,14 @@ def bandpass(fc, q, n, fs, debug=False, ftype="butter"):
     # Fréquence de Nyquist
     nyq = fs / 2
     # Fréquences de coupures basses et hautes
-    fl = (fc - df/2)
-    fh = (fc + df/2)
+    a = math.sqrt(1+math.sqrt(1/(4*q*q)))
+    b = 1/(2*q)
+    fl = fc * (a - b)
+    fh = fc * (a + b)
     if debug: print("Fc : {fc: >4}Hz ({fl: >4}Hz - {fh: >4}Hz)".format(fc=int(fc), fl=int(fl), fh=int(fh)))
 
     # Création du filtre
     if ftype == "fir":
-        return (firwin(numtaps=n, cutoff=[fl/nyq, fh/nyq_rate], window="hamming", pass_zero=False), [1]), fc, fl, fh
+        return (firwin(numtaps=n, cutoff=[fl/nyq, fh/nyq], window="hamming", pass_zero=False), [1]), fc, fl, fh
     else:
         return butter(N=n, Wn=[fl/nyq, fh/nyq], btype="band"), fc, fl, fh
