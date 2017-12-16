@@ -18,9 +18,9 @@ def gen_data(filtered, fs, time_res, amp_res, filters_fq):
         rseqs.append(seqs)
         rfreqs.append(filters_fq[i]["fc"])
     # Normalisation
-    m = np.nanmax(rseqs[rseqs != np.inf])
+    m = np.nanmax(rseqs[rseqs != np.inf]) or 1
     rseqs = np.clip(rseqs, -m, +m)
     rseqs = rseqs/m
-    bit = np.max(rseqs)/(2**amp_res-1)
+    bit = (np.max(rseqs)/(2**amp_res-1)) or 1
     rseqs = np.round(rseqs/bit)
     return rsegs, rfreqs, rseqs

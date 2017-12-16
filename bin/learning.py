@@ -1,10 +1,12 @@
-def learning(learn=[], test=[], learn_i=[], test_i=[], _learn=[], _test=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, benchmark_only=False, neurons=(100), progress=False):
+def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="auto", _learn=[], _test=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, benchmark_only=False, neurons=(100), progress=False):
     """
     Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données
     > learn : Liste de noms formattable des échantillons d'apprentissage
     > test : Liste de noms formattable des échantillons de test
     > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
     > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
+    > learn_v : Liste des valeurs de chaque fichier de learn
+    > test_v : Liste des valeurs de chaque fichier de test
     > [_learn] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres learn et learn_i sont faculatifs)
     > [_test] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres test et test_i sont faculatifs)
     > [folder_learn] : Dossier contenant les échantillons d'apprentissage
@@ -22,9 +24,9 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], _learn=[], _test=[], fold
 
     # Récupération des fichiers d'apprentissage
     if (len(_learn) == 0):
-        files_learn, names_learn, y = learning_files(files=learn, files_i=learn_i)
+        files_learn, names_learn, y = learning_files(files=learn, files_i=learn_i, files_v=learn_v)
     else:
-        files_learn = _learn[0]; names_learn =  _learn[1] ; y = _learn[2]
+        files_learn = _learn[0]; names_learn = _learn[1] ; y = _learn[2]
 
     if debug:
         sys.stdout.write("  {n:4} fichiers d'apprentissage récupérés\n".format(n=len(files_learn)))
@@ -32,7 +34,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], _learn=[], _test=[], fold
 
     # Récupération des fichiers de tests
     if (len(_test) == 0):
-        files_test, names_test, yy = learning_files(files=test, files_i=test_i)
+        files_test, names_test, yy = learning_files(files=test, files_i=test_i, files_v=test_v)
     else:
         files_test = _test[0]; names_test = _test[1] ; yy = _test[2]
 

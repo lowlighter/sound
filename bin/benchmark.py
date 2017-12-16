@@ -1,4 +1,4 @@
-def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], test_i=[], options={}, folder_learn="src/learning/", folder_test="src/tests/", neurons=(100)):
+def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], test_i=[], learn_v="auto", test_v="auto", options={}, folder_learn="src/learning/", folder_test="src/tests/", neurons=(100), curve="interpolate"):
     """
     > param : Nom du paramètre à changer (doit être le nom de la variable tel que défini dans la fonction compare)
     > param_range : Tableau tridimensionnel contenant la valeur de début, de fin et le pas
@@ -24,7 +24,7 @@ def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], tes
     for value in np.arange(param_range[0], param_range[1]+param_range[2], param_range[2]):
         # Calculs en cours
         progress.value = value
-        progress.description = "{p} : {v:=6d}".format(p=param, v=value)
+        progress.description = "{p} : {v}".format(p=param, v=value)
         options[param] = value
         x.append(value)
         y.append(learning(
@@ -38,7 +38,11 @@ def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], tes
     # Nouvelle figure
     plt.figure(figsize=(8, 8), dpi= 80, facecolor="w", edgecolor="k")
     ax = plt.subplot(111)
-    ax.plot(x, y)
+    if (curve == "interpolate") and (len(x) >= 3):
+        xi = np.linspace(x[0], x[-1], num=len(x)*10)
+        ax.plot(xi, interp1d(x, y, kind="cubic")(xi))
+    else:
+        ax.plot(x, y)
     ax.set_xlabel("Variation du paramètre {x}".format(x=param))
     ax.set_xlim(param_range[0], param_range[1])
     ax.set_ylabel("Précision")

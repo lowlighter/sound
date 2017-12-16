@@ -42,7 +42,7 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
         > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
         > [dbfs] : Affiche le spectre DB FS
         > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-        
+
     < ax : Figure secondaire généré par la fonction gen_data
     < y : Signal d'entrée
     < t : Echelle temporelle
