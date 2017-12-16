@@ -24,7 +24,11 @@ def bandpass(fc, q, n, fs, debug=False, ftype="butter"):
     if debug: print("Fc : {fc: >4}Hz ({fl: >4}Hz - {fh: >4}Hz)".format(fc=int(fc), fl=int(fl), fh=int(fh)))
 
     # Création du filtre
-    if ftype == "fir":
-        return (firwin(numtaps=n, cutoff=[fl/nyq, fh/nyq], window="hamming", pass_zero=False), [1]), fc, fl, fh
-    else:
-        return butter(N=n, Wn=[fl/nyq, fh/nyq], btype="band"), fc, fl, fh
+    try:
+        if ftype == "fir":
+            return (firwin(numtaps=n, cutoff=[fl/nyq, fh/nyq], window="hamming", pass_zero=False), [1]), fc, fl, fh
+        else:
+            return butter(N=n, Wn=[fl/nyq, fh/nyq], btype="band"), fc, fl, fh
+    except ValueError as e:
+        pass
+    raise Exception("Le coefficient de qualité étant trop faible ou la fréquence max trop haute, la normalisation des fréquences de coupures basses et hautes n'a pas pu être normalisée. Essayez avec d'autres paramètres.")
