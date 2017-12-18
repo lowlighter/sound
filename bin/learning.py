@@ -123,7 +123,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
         length = max(length, len(testset[i][0]))
 
     # Mise en place du réseau neuronal
-    X, _ = to1D(learnset, length=length)
+    X, lg1 = to1D(learnset, length=length)
     clf = MLPClassifier(hidden_layer_sizes=neurons)
     clf.fit(X, y)
 
@@ -136,7 +136,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
         progress[0].value += progress[1]/5
 
     # Prédictions
-    XX, _ = to1D(testset, length=length)
+    XX, lg2 = to1D(testset, length=length)
     predictions = clf.predict(XX)
     if show_predictions:
         print(predictions)
@@ -186,6 +186,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
         plt.show()
 
     # Fonction anonyme qui permet de continuer à tester le réseau de neurones
+    lg = max(lg1, lg2)
     def anonymous(nfiles):
         compared = compare(folder=folder_test, files=nfiles, time_res=(options["time_res"] if "time_res" in options else 0), amp_res=(options["amp_res"] if "amp_res" in options else 0), fmin=(options["fmin"] if "fmin" in options else 0), fmax=(options["fmax"] if "fmax" in options else 0), nb_filters=(options["nb_filters"] if "nb_filters" in options else 0), q=(options["q"] if "q" in options else 0), n=(options["n"] if "n" in options else 0), fcs=(options["fcs"] if "fcs" in options else []), filters=(options["filters"] if "filters" in options else []), filters_fq=(options["filters_fq"] if "filters_fq" in options else []), drc_tl=(options["drc_tl"] if "drc_tl" in options else False), drc_th=(options["drc_th"] if "drc_th" in options else False), drc_r=(options["drc_r"] if "drc_r" in options else False), formants=(options["formants"] if "formants" in options else []), format=(options["format"] if "format" in options else ".wav"), adc_res=(options["adc_res"] if "adc_res" in options else 16), plotd=False)
         XXX, _ = to1D(compared, length=lg)
