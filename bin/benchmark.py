@@ -18,8 +18,8 @@ def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], tes
     progress = FloatProgress(min=param_range[0], max=param_range[1]+param_range[2], description="En attente...")
     display(progress)
     # Récupération des noms de fichiers pour réduire les temps de calculs
-    _learn = learning_files(learn, learn_i)
-    _test = learning_files(test, test_i)
+    #_learn = learning_files(learn, learn_i)
+    #_test = learning_files(test, test_i)
     # Variation du paramètre
     for value in np.arange(param_range[0], param_range[1]+param_range[2], param_range[2]):
         # Calculs en cours
@@ -28,7 +28,8 @@ def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], tes
         options[param] = value
         x.append(value)
         y.append(learning(
-            _learn=_learn, _test=_test, debug=False, benchmark_only=True, progress=[progress, param_range[2]],
+            learn=learn, learn_i=learn_i, test=test, test_i=test_i, learn_v=learn_v, test_v=test_v,
+            debug=False, benchmark_only=True, progress=[progress, param_range[2]],
             options=options, folder_learn=folder_learn, folder_test=folder_test, neurons=neurons
         ))
     # Mise à jour de la barre de progression
@@ -48,3 +49,5 @@ def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], tes
     ax.set_ylabel("Précision")
     ax.set_ylim(0, 1)
     plt.show()
+
+    return x, y
