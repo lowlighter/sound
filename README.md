@@ -17,6 +17,7 @@ Vous trouverez ci-dessous une liste contenant les différentes fonctions implém
 | [plot_specamp](https://github.com/lowlighter/sound/blob/master/bin/plot_specamp.py) | Spectre d'amplitude |
 | [plot_dbfs](https://github.com/lowlighter/sound/blob/master/bin/plot_dbfs.py) | Spectre dB FS |
 | [plot_specgram](https://github.com/lowlighter/sound/blob/master/bin/plot_specgram.py) | Spectrogramme |
+| [plot_avggram](https://github.com/lowlighter/sound/blob/master/bin/plot_avggram.py) | Spectrogramme (moyenne) |
 | [plot_nspecgram](https://github.com/lowlighter/sound/blob/master/bin/plot_fft.py) | Spectrogramme natif |
 | [plot_formants](https://github.com/lowlighter/sound/blob/master/bin/plot_formatns.py) | Ajoute les formants connus sur une figure existante |
 || **Compresseur audio** |
@@ -47,3 +48,5 @@ Vous trouverez ci-dessous une liste contenant les différentes fonctions implém
 | [state_at](https://github.com/lowlighter/sound/blob/master/bin/state_at.py) | Lit la valeur d'un spectrogramme personnalisé pour un filtre et un instant donné |
 | [cut](https://github.com/lowlighter/sound/blob/master/bin/cut.py) | Découpe un spectrogramme personnalisé en sections |
 | [to1D](https://github.com/lowlighter/sound/blob/master/bin/to1D.py) | Normalise un spectrogramme personnalisé en un tableau unidimensionnel |
+|| **Banc de tests** |
+| [benchmark](https://github.com/lowlighter/sound/blob/master/bin/benchmark.py) | Effectue un banc de tests |

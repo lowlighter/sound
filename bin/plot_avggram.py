@@ -1,4 +1,4 @@
-def avggram(file, file_i=0, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
+def plot_avggram(file, file_i=0, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
     """
     Permet de générer le spectrogramme moyen d'une liste de plusieurs fichiers (voir la documentation de la fonction compare)
     > file : Format de nom de fichier
@@ -15,7 +15,7 @@ def avggram(file, file_i=0, folder="", format=".wav", time_res=0, amp_res=0, fmi
     length = 0
     for i in range(len(rseqs)):
         length = max(length, len(rseqs[i][0]))
-        
+
     # Création d'un spectrogramme vide
     aseqs = []
     for j in range(len(rseqs[0])):
