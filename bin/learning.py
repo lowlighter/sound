@@ -115,8 +115,15 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
     if progress:
         progress[0].value += progress[1]/5
 
+    # Recherche du spectre le plus long
+    length = 0
+    for i in range(len(learnset)):
+        length = max(length, len(learnset[i][0]))
+    for i in range(len(testset)):
+        length = max(length, len(testset[i][0]))
+
     # Mise en place du réseau neuronal
-    X, lg = to1D(learnset)
+    X, _ = to1D(learnset, length=length)
     clf = MLPClassifier(hidden_layer_sizes=neurons)
     clf.fit(X, y)
 
@@ -129,7 +136,8 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
         progress[0].value += progress[1]/5
 
     # Prédictions
-    XX, _ = to1D(testset, length=lg)
+    XX, _ = to1D(testset, length=length)
+    print("=")
     predictions = clf.predict(XX)
     if show_predictions:
         print(predictions)
@@ -167,7 +175,7 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
             ax[i].set_xticks(tick_marks)
             ax[i].get_xaxis().set_ticklabels(names_test, rotation=45)
             ax[i].set_yticks(tick_marks)
-            ax[i].get_yaxis().set_ticklabels(names_test)
+            ax[i].get_yaxis().set_ticklabels(names_learn)
             ax[i].set_ylabel("Valeur")
             ax[i].set_xlabel("Prédiction")
 
