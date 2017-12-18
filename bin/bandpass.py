@@ -17,7 +17,7 @@ def bandpass(fc, q, n, fs, debug=False, ftype="butter"):
     # Fréquence de Nyquist
     nyq = fs / 2
     # Fréquences de coupures basses et hautes
-    a = math.sqrt(1+math.sqrt(1/(4*q*q)))
+    a = math.sqrt(1+(1/(4*q*q)))
     b = 1/(2*q)
     fl = fc * (a - b)
     fh = fc * (a + b)

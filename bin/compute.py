@@ -83,6 +83,19 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
 
     # Spectrogramme
     rsegs, rfreqs, rseqs = gen_data(filtered, fs, time_res, amp_res, filters_fq)
+
+    # Suppression du silence au début de l'échantillon
+    rsum = np.sum(rseqs, axis=0)
+    for i in range(len(rsum)):
+        if rsum[i] != 0:
+            break
+    if spec_only:
+        rsegs = np.delete(rsegs, range(len(rsegs)-i, len(rsegs)))
+    else:
+        rsegs = np.delete(rsegs, range(0, i))
+    rseqs = np.delete(rseqs, range(0, i), 1)
+
+    # Affichage
     if plotd:
         if spec_only:
             plot_datagram(rsegs, rfreqs, rseqs, title=spec_only, xlim=spec_xlim, formants=formants)
