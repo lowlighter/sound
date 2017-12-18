@@ -137,7 +137,6 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
 
     # Prédictions
     XX, _ = to1D(testset, length=length)
-    print("=")
     predictions = clf.predict(XX)
     if show_predictions:
         print(predictions)
