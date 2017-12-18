@@ -1,4 +1,4 @@
-def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], plotd=True, drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
+def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], plotd=True, drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[], r_all=False):
     """
     Permet de comparer plusieurs fichiers audios (voir la documentation de la fonction compute)
     > files : Liste des fichiers à comparer
@@ -17,8 +17,9 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
 
     # Traitement
     mx = 0
+    rsegs = []
     for file in nfiles:
-        d, d, rseq = compute(
+        tsegs, rfreqs, rseq = compute(
             file=file, spec_only=file,
             q=q, n=n, fcs=fcs, nb_filters=nb_filters, fmin=fmin, fmax=fmax,
             filters=filters, filters_fq=filters_fq,
@@ -29,9 +30,14 @@ def compare(files, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax
         )
         rseqs.append(rseq)
         mx = max(mx, len(rseq[0]))
+        if len(tsegs) > len(rsegs):
+            rsegs = tsegs
 
     for i in range(len(rseqs)):
         for j in range(len(rseqs[i])):
             np.resize(rseqs[i][j], (mx,))
 
-    return rseqs
+    if r_all:
+        return rsegs, rfreqs, rseqs
+    else:
+        return rseqs
