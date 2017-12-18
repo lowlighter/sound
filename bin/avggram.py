@@ -15,9 +15,7 @@ def avggram(file, file_i=0, folder="", format=".wav", time_res=0, amp_res=0, fmi
     length = 0
     for i in range(len(rseqs)):
         length = max(length, len(rseqs[i][0]))
-
-    print(length)
-
+        
     # Création d'un spectrogramme vide
     aseqs = []
     for j in range(len(rseqs[0])):
