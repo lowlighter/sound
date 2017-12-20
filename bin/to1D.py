@@ -1,10 +1,16 @@
+import numpy as np
+
 def to1D(rseqs, length=0):
     """
-    Permet de transformer une liste de séquence en un tableau unideimentsionelle
-    > rseqs : Liste des séquences d'énergie
-    > [length] : Longueur du spectre le plus grand
-    < pseqs : Liste des séquences d'énergie sous forme de tableau unidimensionnelle, avec padding selon le spectre le plus grand
-    < length : Longueur du spectre le plus grand
+    Permet de transformer une liste de séquence en un tableau unidimensionelle.
+    Utile pour pouvoir mettre les données dans la couche d'entrée d'un réseau de neurones artificiels.
+
+    :param rseqs: Liste des séquences d'énergie
+    :type rseqs: numbers[][][]
+    :param length: Longueur du spectre le plus grand
+    :type length: number
+    :return: Liste des séquences d'énergie sous forme de tableau unidimensionnelle (padding selon le spectre le plus grand), et longueur du spectre le plus grand
+    :rtype: number[], number
     """
     # Recherche du spectre le plus long
     if length == 0:

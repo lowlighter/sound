@@ -1,54 +1,63 @@
+import numpy as np
+import scipy.io.wavfile as sw
+from adc import adc
+from drc import drc
+from gen_filters import gen_filters
+from gen_filtered import gen_filtered
+from gen_data import gen_data
+from plot_datagram import plot_datagram
+from plot_data import plot_data
+
 def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], ax=None, plotd=True, dbfs=False, spec_only=False, spec_xlim=False, drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
     """
-    Exécute le code dans sa totalité.
-    Cette fonction peut peut être utilisé de plusieurs façons avant d'optimiser les temps de calculs.
+    Exécute la chaîne de traitement dans sa totalité avec le fichier audio en paramètre.
 
-    Sélection de la source
-        > file : Source du fichier à ouvrir (string)
-        OU
-        > file : Signal d'entrée (liste d'amplitudes)
-        > fs : Fréquence d'échantillonage
-
-    Compresseur audio
-        > [drc_tl] : Seuil bas du compresseur audio
-        > [drc_th] : Seuil haut du compresseur audio
-        > [drc_r] : Ratio du compresseur audio
-
-    Convertisseur analogique numérique
-        > [adc_res] : Résolution du CAN
-
-    Sélection de la banque de filtres
-        > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
-        > filters_fq : Données caractéristiques des filtres déjà générés
-        OU
-        > fmin : Fréquence minimum
-        > fmax : Fréquence maximum
-        > nb_filters : Nombre de filtres
-        > q : Facteur de qualité
-        > n : Ordre du filtre
-        OU
-        > fcs : Liste de fréquences centrales personnalisées
-        > q : Facteur de qualité
-        > n : Ordre du filtre
-
-    Configuration du spectrogramme
-        > time_res : Résolution temporelle
-        > amp_res : Résolution en amplitude
-
-    Modification de l'affichage
-        > [ax] : Surface de dessin existante (laisser vide pour créer une nouvelle figure)
-        > [plotd] : Affiche la figure sortante (activé par défaut)
-        > [spec_only] : Affiche uniquement le spectrogramme
-        > [spec_xlim] : Modifie les limites de l'axe des abscisses du spectrogramme
-        > [dbfs] : Affiche le spectre DB FS
-        > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-
-    < ax : Figure secondaire généré par la fonction gen_data
-    < y : Signal d'entrée
-    < t : Echelle temporelle
-    < rsegs : Liste des segments temporels
-    < rfreqs : Liste de fréquences
-    < rseqs : Liste des séquence d'énergie
+    :param file: Nom du fichier audio à traiter ou liste d'amplitude
+    :type file: string ou number
+    :param fs: Fréquence d'échantillonage (uniquement si une liste d'amplitude est donnée pour le paramètre file)
+    :type fs: number
+    :param adc_res: Résolution du convertisseur analogique numérique
+    :type adc_res: number
+    :param drc_tl: Seuil bas du compresseur audio
+    :type drc_tl: number
+    :param drc_th: Seuil haut du compresseur audio
+    :type drc_th: number
+    :param drc_r: Taux de compression du compresseur audio
+    :type drc_r: number
+    :param fmin: Fréquence minimum
+    :type fmin: number
+    :param fmax: Fréquence maximum
+    :type fmax: number
+    :param fcs: Liste de fréquences centrales personnalisées (dans ce cas, les paramètres fmin, fmax et nb_filters sont ignorés)
+    :type fcs: number[]
+    :param nb_filters: Nombre de filtres
+    :type nb_filters: number
+    :param q: Facteur de qualité
+    :type q: number
+    :param n: Ordre du filtre
+    :type n: number
+    :param filters: Banque de filtre déjà générée (dans ce cas, les paramètres de génération de filtres sont ignorés)
+    :type filters: filtre[]
+    :param filters_fq: Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    :type filters_fq: object("fc", "fl", "fh")[]
+    :param time_res: Résolution temporelle
+    :type time_res: number
+    :param amp_res: Résolution en amplitude
+    :type amp_res: number
+    :param formants: Liste des formants à tracer sur la figure ("a", "e", "i", "o", "u")
+    :type formants: string[]
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
+    :param plot_d: Si actif, affiche le spectrogramme de chaque fichier traité
+    :type plot_d: bool
+    :param spec_only: Si actif, affiche uniquement le spectrogramme sur mesure (dans ce cas, précisez un titre)
+    :type spec_only: string
+    :param spec_xlim: Modifie la limite supérieure de l'axe des abscisses du spectrogramme
+    :type spec_xlim: number
+    :param dbfs: Affiche le spectre db FS
+    :type dbfs: boolean
+    :return: Liste des segments temporels, liste des fréquences et liste des séquences d'énergies
+    :rtype: number[], number[], number[][]
     """
     # Récupération du fichier audio et génération du bruit (si précisé)
     if type(file) == list:

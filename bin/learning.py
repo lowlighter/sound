@@ -1,21 +1,53 @@
+import numpy as np
+import itertools
+import sys
+import matplotlib.pyplot as plt
+from compare import compare
+from to1D import to1D
+from learning_files import learning_files
+from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import classification_report, confusion_matrix, precision_score
+
 def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="auto", _learn=[], _test=[], folder_learn="src/learning/", folder_test="src/tests/", options={}, debug=True, show_predictions=False, confusion=True, benchmark_only=False, neurons=(100), progress=False):
     """
-    Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données
-    > learn : Liste de noms formattable des échantillons d'apprentissage
-    > test : Liste de noms formattable des échantillons de test
-    > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
-    > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
-    > learn_v : Liste des valeurs de chaque fichier de learn
-    > test_v : Liste des valeurs de chaque fichier de test
-    > [_learn] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres learn et learn_i sont faculatifs)
-    > [_test] : Sortie réutilisable de la fonction learning_files (dans ce cas les paramètres test et test_i sont faculatifs)
-    > [folder_learn] : Dossier contenant les échantillons d'apprentissage
-    > [folder_test] : Dossier contenant les échantillons de tests
-    > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
-    > [debug] : Permet de suivre l'éxécution du programme
-    > [show_predictions] : Afficher les prédictions
-    > [neurons] : Nombre de couches et de neuronnes
-    < clf_predict : Racourci fonctions qui prend en unique paramètre une liste de fichiers et qui prédit la sortie avec la même configuration
+    Génère un nouveau classificateur à partir de données d'apprentissage et les tests sur un jeu de données.
+
+    :param learn: Liste de noms formattable des échantillons d'apprentissage
+    :type learn: string[]
+    :param test: Liste de noms formattable des échantillons de test
+    :type test: string[]
+    :param learn_i: Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
+    :type learn_i: number[]
+    :param test_i: Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
+    :type test_i: number[]
+    :param learn_v: Liste des valeurs des échantillons d'apprentissage (déterminé selon le nom du fichier si non précisé)
+    :type learn_v: string[]
+    :param test_v: Liste des valeurs des échantillons de test (déterminé selon le nom du fichier si non précisé)
+    :type test_v: string[]
+    :param folder_learn: Dossier contenant les échantillons d'apprentissage
+    :type folder_learn: string
+    :param folder_test: Dossier contenant les échantillons de tests
+    :type folder_test: string
+    :param _learn: (ne pas utiliser, gardé pour la compatibilité)
+    :type _learn: string[]
+    :param _test: (ne pas utiliser, gardé pour la compatibilité)
+    :type _test: string[]
+    :param options: Options de comparaison (voir la documentation de compare, certains paramètres sont requis)
+    :type options: object
+    :param neurons: Nombre de couches et de neuronnes
+    :type neurons: (number, ...)
+    :param debug: Si actif, permet de suivre l'éxécution du programme
+    :type debug: bool
+    :param show_predictions: Si actif, affiche les prédictions
+    :type show_predictions: bool
+    :param confusion: Si actif, affiche la matrice de confusion
+    :type confusion: bool
+    :param benchmark_only: Si actif, seule la précision du réseau de neurones artificiels sera retournée
+    :type benchmark_only: bool
+    :param progress: Instance d'une barre de progression et valeur d'incrémentation (utilisé par la fonction benchmark)
+    :type progress: array[progress, increment value]
+    :return: Fonction qui prend en unique paramètre une liste de fichiers dont le réseau de neurones artificiels avec la même configuration essayera de prédire la valeur
+    :rtype: function (number si benchmark_only est actif)
     """
     # Debug
     if debug:

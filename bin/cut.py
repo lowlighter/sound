@@ -1,9 +1,15 @@
+import numpy as np
+
 def cut(rseqs, debug=False):
     """
-    Découpe un tableau contenant des séquences d'énergies en retirant les bandes zones vierges
-    > rseqs : Liste des séquence d'énergie
-    > [debug] : Debug
-    < cseqs : Liste contenant des segments découpés d'énergies
+    Découpe un spectrogramme sur mesure selon les bandes d'énergies actives.
+
+    :param rseqs: Liste des séquence d'énergie
+    :type rseqs: number[][]
+    :param debug: Debug
+    :type debug: bool
+    :return: Liste contenant des segments découpés d'énergies
+    :rtype: number[][][]
     """
     # Somme des énergies par colonne
     sseqs = np.sum(rseqs, axis=0)

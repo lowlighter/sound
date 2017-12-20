@@ -1,11 +1,19 @@
+import matplotlib.pyplot as plt
+
 def plot_filtered(y, t, filtered, filters_fq, nsub=4):
     """
-    Affiche les signaux après filtrage
-    > y : Signal original
-    > t : Echelle temporelle
-    > filtered : Liste des signaux filtrés
-    > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-    > [nsub] : Nombre de figures par ligne
+    Affiche les signaux après filtrage.
+    
+    :param y: Signal d'entrée
+    :type y: number[]
+    :param t: Echelle temporelle
+    :type t: number[]
+    :param filtered: Signaux filtrés
+    :type filtered: number[][]
+    :param filters_fq: Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    :type filters_fq: object("fc", "fl", "fh")[]
+    :param nsub: Nombre de figures par ligne
+    :type nsub: number
     """
     # Initialisation
     nl = True; j = 0

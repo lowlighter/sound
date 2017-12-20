@@ -1,10 +1,13 @@
+from similar import similar
+
 def similarities(compared, names):
     """
-    Calcul le coefficient de corrélation entre deux signaux en sorties de la fonction compare.
-    > a : Premier spectrogramme
-    > b : Second spectrogramme
-    > [debug] : Texte de debug
-    < v : Coefficient de corrélation
+    Affiche les coefficients de corrélation entre plusieurs signaux en sorties de la fonction compare.
+
+    :param compared: Liste des spectrogrammes à comparer
+    :type compared: number[][][]
+    :param names: Liste des noms de chaque spectrogramme
+    :type names: string[]
     """
     # Initialisation
     for i in range(len(compared)-1):

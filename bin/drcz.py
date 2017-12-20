@@ -1,11 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from drc import drc
+
 def drcz(tl=False, th=False, ratio=1, ax=None, title="Réponse linéaire"):
     """
-    Affiche la réponse impulsionnelle d'un compresseur audio
-    > [tl] : Seuil bas, compris entre 0 et 1 (mettre à False pour désactiver)
-    > [th] : Seuil haut, compris entre 0 et 1 (mettre à False pour désactiver)
-    > [ratio] : Ratio
-    > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
-    > [title] : Titre
+    Affiche la réponse impulsionnelle d'un compresseur audio.
+
+    :param tl: Seuil bas du compresseur audio (mettre à False pour désactiver)
+    :type tl: number
+    :param th: Seuil haut du compresseur audio (mettre à False pour désactiver)
+    :type th: number
+    :param ratio: Taux de compression du compresseur audio
+    :type ratio: number
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
+    :param title: Titre
+    :type title: string
     """
     pts = 10000
     xx = np.arange(0, pts)

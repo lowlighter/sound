@@ -1,10 +1,17 @@
+import matplotlib.pyplot as plt
+
 def plot_specgram(y, t, fs, ax=None):
     """
-    Affiche le spectrogramme
-    > y : Liste d'amplitudes
-    > t : Echelle temporelle
-    > fs : Fréquence d'échantillonage
-    > [ax] : Surface de dessin (laisser vide pour créer une nouvelle figure)
+    Affiche le spectrogramme.
+
+    :param y: Liste d'amplitudes
+    :type y: number[]
+    :param t: Echelle temporelle
+    :type t: number[]
+    :param fs: Fréquence d'échantillonage
+    :type fs: number
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
     """
     if type(ax) == type(None):
         plt.figure(figsize=(12, 4), dpi= 80, facecolor="w", edgecolor="k")

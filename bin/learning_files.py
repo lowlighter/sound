@@ -1,9 +1,18 @@
+import re
+
 def learning_files(files, files_i, files_v="auto"):
     """
-    Génère la liste des noms de fichiers à partir d'une liste de chaînes de caractères formattable
-    > files : Liste de noms formattable des échantillons
-    > files_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre files
-    > [files_v] : Liste contenant les valeurs de chaque fichier du paramètre files
+    Génère la liste des noms de fichiers à partir d'une liste de chaînes de .
+
+    :param files: Liste de noms formattable des échantillons
+    :type files: string[]
+    :param files_i: Liste de range (de 1 à n) pour la génération des fichiers du paramètre files
+    :type files_i: number[]
+    :param files_v: Liste contenant les valeurs de chaque fichier du paramètre files
+    :type files_v: string[]
+
+    :return: Liste des noms de fichiers formattés, liste des noms uniques de valeurs et solution (valeur) du fichier formatté associé
+    :rtype: string[], string[], string[]
     """
     ffiles = []
     names = []

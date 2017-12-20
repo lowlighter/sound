@@ -1,15 +1,37 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from ipywidgets import FloatProgress
+from IPython.display import display
+from learning import learning
+
 def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], test_i=[], learn_v="auto", test_v="auto", options={}, folder_learn="src/learning/", folder_test="src/tests/", neurons=(100), curve="interpolate"):
     """
-    > param : Nom du paramètre à changer (doit être le nom de la variable tel que défini dans la fonction compare)
-    > param_range : Tableau tridimensionnel contenant la valeur de début, de fin et le pas
-    > learn : Liste de noms formattable des échantillons d'apprentissage
-    > test : Liste de noms formattable des échantillons de test
-    > learn_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
-    > test_i : Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
-    > [folder_learn] : Dossier contenant les échantillons d'apprentissage
-    > [folder_test] : Dossier contenant les échantillons de tests
-    > options : Options de comparaison (voir la documentation de compare.py, certains paramètres sont recquis)
-    > [neurons] : Nombre de couches et de neuronnes
+    Effectue un banc de tests avec des paramètres donnés en évaluant la précision du réseau de neurones artificiels.
+
+    :param param: Nom du paramètre à changer (doit être le nom de la variable tel que défini dans la fonction compare)
+    :type param: string (paramètre accepté par la fonction compare)
+    :param param_range: Tableau tridimensionnel contenant la valeur de début, de fin et le pas
+    :type param_range: number[start, end, step]
+    :param learn: Liste de noms formattable des échantillons d'apprentissage
+    :type learn: string[]
+    :param test: Liste de noms formattable des échantillons de test
+    :type test: string[]
+    :param learn_i: Liste de range (de 1 à n) pour la génération des fichiers du paramètre learn
+    :type learn_i: number[]
+    :param test_i: Liste de range (de 1 à n) pour la génération des fichiers du paramètre test
+    :type test_i: number[]
+    :param learn_v: Liste des valeurs des échantillons d'apprentissage (déterminé selon le nom du fichier si non précisé)
+    :type learn_v: string[]
+    :param test_v: Liste des valeurs des échantillons de test (déterminé selon le nom du fichier si non précisé)
+    :type test_v: string[]
+    :param folder_learn: Dossier contenant les échantillons d'apprentissage
+    :type folder_learn: string
+    :param folder_test: Dossier contenant les échantillons de tests
+    :type folder_test: string
+    :param options: Options de comparaison (voir la documentation de compare, certains paramètres sont requis)
+    :type options: object
+    :param neurons: Nombre de couches et de neuronnes
+    :type neurons: (number, ...)
     """
     # Initialisation
     x = []

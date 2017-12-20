@@ -1,10 +1,15 @@
+import numpy as np
+
 def similar(a, b):
     """
     Calcul le coefficient de corrélation entre deux signaux en sorties de la fonction compare.
-    > a : Premier spectrogramme
-    > b : Second spectrogramme
-    > [debug] : Texte de debug
-    < v : Coefficient de corrélation
+
+    :param a: Premier spectrogramme
+    :type a: number[][]
+    :param b: Second spectrogramme
+    :type b: number[][]
+    :return: Coefficient de corrélation
+    :rtype: number
     """
     # Initialisation
     a = np.array(a)

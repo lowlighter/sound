@@ -1,15 +1,30 @@
+import matplotlib.pyplot as plt
+from plot_specamp import plot_specamp
+from plot_dbfs import plot_dbfs
+from plot_datagram import plot_datagram
+
 def plot_data(y, t, rsegs, rfreqs, rseqs, ax=None, xlim=False, dbfs=True, formants=[]):
     """
-    Affiche les données audio du signal
-    > y : Signal d'entrée
-    > t : Echelle temporelle
-    > rsegs : Liste des segments temporels
-    > rfreqs : Liste de fréquences
-    > rseqs : Liste des séquence d'énergie
-    > [ax] : Figures à réutiliser
-    > [xlim] : Modifie les limites de l'axe des abscisses
-    > [dbfs] : Affiche le spectre dbfs
-    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
+    Affiche le spectre d'amplitude et le spectrogramme sur mesure d'un fichier audio.
+
+    :param y: Liste d'amplitudes
+    :type y: number[]
+    :param t: Echelle temporelle
+    :type t: number[]
+    :param rsegs: Liste des segments temporels
+    :type rsegs: number[]
+    :param rfreqs: Liste de fréquences
+    :type rfreqs: number[]
+    :param rseqs: Liste des séquence d'énergie
+    :type rseqs: number[][]
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
+    :param xlim: Modifie la limite supérieure de l'axe des abscisses du spectrogramme
+    :type xlim: number
+    :param dbfs: Affiche le spectre db FS
+    :type dbfs: boolean
+    :param formants: Liste des formants à tracer sur la figure ("a", "e", "i", "o", "u")
+    :type formants: string[]
     """
     # Figure
     if type(ax) == type(None):

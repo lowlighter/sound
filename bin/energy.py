@@ -1,11 +1,17 @@
 def energy(signal, fs, start=0, end=False):
     """
-    Calcule l'énergie d'un segment de signal
-    > signal : Signal
-    > fs : Fréquence d'échantillonage
-    > [start] : Départ (en sec)
-    > [end] : Fin (en sec)
-    < seq : Energie contenue dans la séquence de t=start à t=end
+    Calcule l'énergie d'un segment de signal.
+
+    :param signal: Signal d'entrée
+    :type signal: number
+    :param fs: Fréquence d'échantillonage
+    :type fs: number
+    :param start: Départ (en sec)
+    :type start: number
+    :param end: Fin (en sec)
+    :type end: number
+    :return: Energie contenue dans le segment temporel de t=start à t=end
+    :rtype: number
     """
     # Indices
     start = int(start * fs)

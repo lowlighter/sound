@@ -1,20 +1,43 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import wave
+import time
+from IPython.display import clear_output
+from compute import compute
+from plot_formants import plot_formants
+
 def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25, adc_res=16, predict=False):
+    import pyaudio
     """
-    Commence un enregistrement vocal live
-    Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable
-    > filters : Banque de filtre déjà généré (permet d'éviter de les regénérer à chaque fois)
-    > filters_fq : Données caractéristiques des filtres déjà générés
-    > time_res : Résolution temporelle
-    > amp_res : Résolution en amplitude
-    > [fs] : Fréquence d'échantillonage
-    > [last] : Nombre de sécondes visionnées par l'enregistrement
-    > [duration] : Durée d'enregistrement par paquet (une valeur trop faible risque de fausser les données dans le sens où le microphone récupère des données plus vite qu'elles ne sont traitées)
-    > [formants] : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-    > [drc_tl] : Seuil bas du compresseur audio
-    > [drc_th] : Seuil haut du compresseur audio
-    > [drc_r] : Ratio du compresseur audio
-    > [adc_res] : Résolution du CAN
-    > [predict] : Perceptron multicouche
+    Commence un enregistrement vocal live (pyaudio doit être installé sur la machine).
+    Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable.
+
+    :param fs: Fréquence d'échantillonage (uniquement si une liste d'amplitude est donnée pour le paramètre file)
+    :type fs: number
+    :param adc_res: Résolution du convertisseur analogique numérique
+    :type adc_res: number
+    :param drc_tl: Seuil bas du compresseur audio
+    :type drc_tl: number
+    :param drc_th: Seuil haut du compresseur audio
+    :type drc_th: number
+    :param drc_r: Taux de compression du compresseur audio
+    :type drc_r: number
+    :param filters: Banque de filtre déjà générée
+    :type filters: filtre[]
+    :param filters_fq: Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    :type filters_fq: object("fc", "fl", "fh")[]
+    :param time_res: Résolution temporelle
+    :type time_res: number
+    :param amp_res: Résolution en amplitude
+    :type amp_res: number
+    :param formants: Liste des formants à tracer sur la figure ("a", "e", "i", "o", "u")
+    :type formants: string[]
+    :param last: Nombre de sécondes visionnées par l'enregistrement
+    :type last: number
+    :param duration: Durée d'enregistrement par paquet
+    :type duration: number
+    :param predict: Perceptron multicouche déjà configuré
+    :type predict: function (sortie de la fonction learning)
     """
     # Durée de l'enregistrement
     duration = 0.1
@@ -67,5 +90,4 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
         clear_output()
         plt.close()
         print("Terminé !")
-        quit
     return

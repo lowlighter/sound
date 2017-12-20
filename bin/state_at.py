@@ -1,12 +1,19 @@
 def state_at(filter_no, s, rsegs, rseqs, debug=False):
     """
-    Récupère la valeur retournée par un filtre à un temps donnée
-    > filter_no : Indice du filtre
-    > s : Temps (valeur comprise entre 0 et la durée du signal audio)
-    > rsegs : Liste des segments temporels
-    > rseqs : Liste des séquence d'énergie
-    > [debug] : Si actif, affiche les informations sur l'état récupéré
-    < state : Valeur numérique du filtre pour t=s
+    Récupère la valeur retournée par un filtre à un temps donnée.
+
+    :param filter_no: Indice du filtre
+    :type filter_no: number
+    :param s: Temps (valeur comprise entre 0 et la durée du signal audio)
+    :type s: number
+    :param rsegs: Liste des segments temporels
+    :type rsegs: number[]
+    :param rseqs: Liste des séquences d'énergie
+    :type rseqs: number[][]
+    :param debug: Si actif, affiche les informations sur l'état récupéré
+    :type debug: bool
+    :return: Valeur numérique du filtre pour t=s
+    :rtype:number
     """
     # Calcul de l'indice dans la séquence
     i = 0

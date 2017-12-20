@@ -1,12 +1,20 @@
+import numpy as np
+
 def drc(y, tl=False, th=False, ratio=1):
     """
     Effectue une compression audio afin de réduire la dynamique du signal.
     Cela permet d'amplifier les amplitudes basses et d'atténuer les amplitudes hautes.
-    > y : Signal d'entrée
-    > [tl] : Seuil bas (mettre à False pour désactiver)
-    > [th] : Seuil haut (mettre à False pour désactiver)
-    > [ratio] : Ratio
-    < yy : Signal compressé
+
+    :param y: Signal d'entrée
+    :type y: number[]
+    :param tl: Seuil bas du compresseur audio (mettre à False pour désactiver)
+    :type tl: number
+    :param th: Seuil haut du compresseur audio (mettre à False pour désactiver)
+    :type th: number
+    :param ratio: Taux de compression du compresseur audio
+    :type ratio: number
+    :return: Signal compressé
+    :rtype: number[]
     """
     yy = np.array(y, copy=True)
     # Traitement

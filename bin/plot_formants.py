@@ -1,10 +1,17 @@
+import matplotlib.pyplot as plt
+
 def plot_formants(formants, rfreqs, ax, rsegs):
     """
-    Affiche les formants sur une figure déjà existante
-    > formants : Liste de formants à indiquer sur le schéma (la première valeur doit être un nombre indiquant la tolérance de fréquence par rapport à la valeur de base)
-    > rfreqs : Liste de fréquences
-    > ax : Figures à utiliser
-    > xlim : Valeur maximum des abscisses
+    Affiche les formants sur une figure déjà existante.
+
+    :param formants: Liste des formants à tracer sur la figure ("a", "â", "e", "é", "i", "o", "u", "ou", "ai")
+    :type formants: string[]
+    :param rfreqs: Liste de fréquences
+    :type rfreqs: number[]
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
+    :param xlim: Modifie la limite supérieure de l'axe des abscisses du spectrogramme
+    :type xlim: number
     """
     # Liste des formants
     fformants = {

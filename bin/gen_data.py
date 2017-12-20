@@ -1,14 +1,22 @@
+import numpy as np
+from energies import energies
+
 def gen_data(filtered, fs, time_res, amp_res, filters_fq):
     """
-    Calcul du spectrogramme
-    > filtered : Liste de signaux filtrés
-    > fs : Fréquence d'échantillonage
-    > time_res : Résolution temporelle
-    > amp_res : Résolution en amplitude
-    > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-    < rsegs : Liste des segments temporels
-    < rfreqs : Liste de fréquences
-    < rseqs : Liste des séquence d'énergie
+    Génération du spectrogramme.
+
+    :param filtered: Liste de signaux filtrés
+    :type filtered: number[][]
+    :param fs: Fréquence d'échantillonage (uniquement si une liste d'amplitude est donnée pour le paramètre file)
+    :type fs: number
+    :param time_res: Résolution temporelle
+    :type time_res: number
+    :param amp_res: Résolution en amplitude
+    :type amp_res: number
+    :param filters_fq: Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    :type filters_fq: object("fc", "fl", "fh")[]
+    :return: Liste des segments temporels, liste des fréquences et liste des séquences d'énergies
+    :rtype: number[], number[], number[][]
     """
     # Initialisation
     rsegs = [] ; rseqs = [] ; rfreqs = []

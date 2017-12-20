@@ -1,7 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
 def plot_freqz(filters, fs):
     """
-    Affiche la réponse fréquentielle d'une banque de filtre
-    > filters : Banque de filtres
+    Affiche la réponse fréquentielle d'une banque de filtre.
+
+    :param filters: Liste des filtres générés
+    :type filters: filtre[]
+    :param fs: Fréquence d'échantillonage
+    :type fs: number
     """
     # Figure
     plt.figure(figsize=(12, 6), dpi= 80, facecolor="w", edgecolor="k")

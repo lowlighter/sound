@@ -1,10 +1,18 @@
+import numpy as np
+from scipy.signal import lfilter
+
 def gen_filtered(y, fs, filters):
     """
-    Génère les signaux après filtrage
-    > y : Liste d'amplitudes
-    > fs : Fréquence d'échantillonage
-    > filters : Liste de filtres
-    < filtered : Liste des signaux filtrés
+    Génération des signaux en sortie d'une banque de filtre.
+
+    :param y: Signal d'entrée
+    :type y: number[]
+    :param fs: Fréquence d'échantillonage (uniquement si une liste d'amplitude est donnée pour le paramètre file)
+    :type fs: number
+    :param filters: Banque de filtre déjà générée (dans ce cas, les paramètres de génération de filtres sont ignorés)
+    :type filters: filtre[]
+    :return: Signaux filtrés
+    :rtype: number[][]
     """
     # Initialisation
     filtered = []; N = len(y);

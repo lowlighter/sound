@@ -1,9 +1,17 @@
+import numpy as np
+from compare import compare
+from plot_datagram import plot_datagram
+
 def plot_avggram(file, file_i=0, folder="", format=".wav", time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filters=0, q=0, n=0, filters=[], filters_fq=[], drc_tl=False, drc_th=False, drc_r=False, adc_res=16, formants=[]):
     """
-    Permet de générer le spectrogramme moyen d'une liste de plusieurs fichiers (voir la documentation de la fonction compare)
-    > file : Format de nom de fichier
-    > file_i : Nombre de fichiers
-    < aseqs : Liste des séquences d'énergie (moyenne)
+    Permet de générer le spectrogramme moyen d'une liste de plusieurs fichiers.
+
+    :param file: Nom formattable des échantillons audios
+    :type file: string
+    :param file_i: Nombre de fichiers
+    :type file_i: number
+    :return: Liste des séquences d'énergies (moyenne)
+    :rtype: number[][]
     """
     # Récupération des différents spectrogrammes
     files = []

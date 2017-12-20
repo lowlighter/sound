@@ -1,11 +1,35 @@
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import scipy.io.wavfile as sw
+from scipy import signal
+from drc import drc
+from adc import adc
+from plot_formants import plot_formants
+
 def plot_nspecgram(file, filters_fq, ax=None, title="Spectrogramme", xlim=False, formants=[], drc_tl=False, drc_th=False, drc_r=False, adc_res=16):
     """
-    Affiche le spectrogramme natif
-    > y : Signal original
-    > t : Echelle temporelle
-    > filtered : Liste des signaux filtrés
-    > filters_fq : Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
-    > [nsub] : Nombre de figures par ligne
+    Affiche le spectrogramme natif.
+
+    :param file: Nom du fichier
+    :type file: string
+    :param filters_fq: Listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
+    :type filters_fq: object("fc", "fl", "fh")[]
+    :param ax: Surface de dessin existante (une nouvelle figure sera crée si aucune n'est donnée en paramètre)
+    :type ax: figure
+    :param title: Titre
+    :type title: string
+    :param xlim: Modifie la limite supérieure de l'axe des abscisses du spectrogramme
+    :type xlim: number
+    :param formants: Liste des formants à tracer sur la figure ("a", "e", "i", "o", "u")
+    :type formants: string[]
+    :param adc_res: Résolution du convertisseur analogique numérique
+    :type adc_res: number
+    :param drc_tl: Seuil bas du compresseur audio
+    :type drc_tl: number
+    :param drc_th: Seuil haut du compresseur audio
+    :type drc_th: number
+    :param drc_r: Taux de compression du compresseur audio
+    :type drc_r: number
     """
     # Initialisation
     fs, y = sw.read(file)

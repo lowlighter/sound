@@ -1,16 +1,26 @@
+import math
+from scipy.signal import butter, firwin
+
 def bandpass(fc, q, n, fs, debug=False, ftype="butter"):
     """
-    Génère un filtre passe-bande
-    > fc : Fréquence centrale
-    > q : Facteur de qualité
-    > n : Ordre du filtre
-    > fs : Fréquence d'échantillonage
-    > [debug] : Si actif, affiche les informations sur le filtre généré
-    > [ftype] : Permet de choisir un filtre fir ou butter
-    < filter : Filtre de Butterworth avec les caractéristiques indiquées
-    < fc : Fréquence centrale
-    < fl : Fréquence de coupure (basse)
-    < fh : Fréquence de coupure (haute)
+    Génère un filtre passe-bande de fréquence centrale fs, d'ordre n et de facteur qualité q.
+    Il est possible de réaliser des filtres de butterworth ou FIR.
+
+    :param fc: Fréquence centrale
+    :type fc: number
+    :param q: Facteur de qualité
+    :type q: number
+    :param n: Ordre du filtre
+    :type n: number
+    :param fs: Fréquence d'échantillonage
+    :type fs: number
+    :param debug: Si actif, affiche les informations sur le filtre généré
+    :type debug: bool
+    :param ftype: Permet de choisir un filtre fir ou butter
+    :type ftype: string ("butter" ou "fir")
+
+    :return: Filtre avec les caractéristiques indiquées, Fréquence centrale, Fréquence de coupure (basse), Fréquence de coupure (haute)
+    :rtype: filtre, number, number, number
     """
     # Largeur de la bande passante
     df = fc / q
