@@ -136,60 +136,76 @@ def learning(learn=[], test=[], learn_i=[], test_i=[], learn_v="auto", test_v="a
         progress[0].value += progress[1]/5
 
     # Prédictions
-    XX, lg2 = to1D(testset, length=length)
-    predictions = clf.predict(XX)
-    if show_predictions:
-        print(predictions)
+    if len(testset) > 0:
+        XX, lg2 = to1D(testset, length=length)
+        predictions = clf.predict(XX)
+        if show_predictions:
+            print(predictions)
 
-    # Debug
-    if debug:
-        sys.stdout.write("  {n:4} prédictions\n".format(n=len(files_test)))
-        sys.stdout.flush()
-        sys.stdout.write("\nRapport détaillé du classificateur :\n")
-        sys.stdout.flush()
-        print(classification_report(yy, predictions))
-    # Progression
-    if progress:
-        progress[0].value += progress[1]/5
+        # Debug
+        if debug:
+            sys.stdout.write("  {n:4} prédictions\n".format(n=len(files_test)))
+            sys.stdout.flush()
+            sys.stdout.write("\nRapport détaillé du classificateur :\n")
+            sys.stdout.flush()
+            print(classification_report(yy, predictions))
+        # Progression
+        if progress:
+            progress[0].value += progress[1]/5
 
-    # Rapport de classification
-    if benchmark_only:
-        return precision_score(yy, predictions, average="micro")
+        # Rapport de classification
+        if benchmark_only:
+            return precision_score(yy, predictions, average="micro")
 
-    # Matrice de confusion
-    if confusion:
         # Matrice de confusion
-        f, ax = plt.subplots(1, 2, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
-        confusions = []
-        confusions.append(confusion_matrix(yy, predictions))
-        confusions.append(confusions[0].astype("float") / confusions[0].sum(axis=1)[:, np.newaxis])
-        # Affichage
-        for i in range(len(confusions)):
-            #Titre et affichage
-            ax[i].imshow(confusions[i], interpolation="nearest", cmap=plt.cm.Blues)
-            ax[i].set_title("Matrice de confusion (normalisée)" if (i > 0) else "Matrice de confusion")
+        if confusion:
+            # Matrice de confusion
+            f, ax = plt.subplots(1, 2, figsize=(12, 8), dpi= 80, facecolor="w", edgecolor="k")
+            confusions = []
+            confusions.append(confusion_matrix(yy, predictions))
+            confusions.append(confusions[0].astype("float") / confusions[0].sum(axis=1)[:, np.newaxis])
+            # Affichage
+            for i in range(len(confusions)):
+                #Titre et affichage
+                ax[i].imshow(confusions[i], interpolation="nearest", cmap=plt.cm.Blues)
+                ax[i].set_title("Matrice de confusion (normalisée)" if (i > 0) else "Matrice de confusion")
 
-            # Ticks
-            tick_marks = np.arange(len(names_test))
-            ax[i].set_xticks(tick_marks)
-            ax[i].get_xaxis().set_ticklabels(names_test, rotation=45)
-            ax[i].set_yticks(tick_marks)
-            ax[i].get_yaxis().set_ticklabels(names_learn)
-            ax[i].set_ylabel("Valeur")
-            ax[i].set_xlabel("Prédiction")
+                # Ticks
+                tick_marks = np.arange(len(names_learn))
+                ax[i].set_xticks(tick_marks)
+                ax[i].get_xaxis().set_ticklabels(names_learn, rotation=45)
+                ax[i].set_yticks(tick_marks)
+                ax[i].get_yaxis().set_ticklabels(names_learn)
+                ax[i].set_ylabel("Valeur")
+                ax[i].set_xlabel("Prédiction")
 
-            # Valeurs
-            fmt = '.2f' if (i > 0) else 'd'
-            thresh = confusions[i].max() / 2.
-            for j, k in itertools.product(range(confusions[i].shape[0]), range(confusions[i].shape[1])):
-                ax[i].text(k, j, format(confusions[i][k, j], fmt), horizontalalignment="center", color="white" if confusions[i][j, k] > thresh else "black")
-        plt.show()
+                # Valeurs
+                fmt = '.2f' if (i > 0) else 'd'
+                thresh = confusions[i].max() / 2.
+                for j, k in itertools.product(range(confusions[i].shape[0]), range(confusions[i].shape[1])):
+                    ax[i].text(k, j, format(confusions[i][k, j], fmt), horizontalalignment="center", color="white" if confusions[i][j, k] > thresh else "black")
+            plt.show()
+    # Pas de prédictions
+    else:
+        lg2 = 0
+        # Progression
+        if progress:
+            progress[0].value += progress[1]/5
 
     # Fonction anonyme qui permet de continuer à tester le réseau de neurones
     lg = max(lg1, lg2)
-    def anonymous(nfiles):
-        compared = compare(folder=folder_test, files=nfiles, time_res=(options["time_res"] if "time_res" in options else 0), amp_res=(options["amp_res"] if "amp_res" in options else 0), fmin=(options["fmin"] if "fmin" in options else 0), fmax=(options["fmax"] if "fmax" in options else 0), nb_filters=(options["nb_filters"] if "nb_filters" in options else 0), q=(options["q"] if "q" in options else 0), n=(options["n"] if "n" in options else 0), fcs=(options["fcs"] if "fcs" in options else []), filters=(options["filters"] if "filters" in options else []), filters_fq=(options["filters_fq"] if "filters_fq" in options else []), drc_tl=(options["drc_tl"] if "drc_tl" in options else False), drc_th=(options["drc_th"] if "drc_th" in options else False), drc_r=(options["drc_r"] if "drc_r" in options else False), formants=(options["formants"] if "formants" in options else []), format=(options["format"] if "format" in options else ".wav"), adc_res=(options["adc_res"] if "adc_res" in options else 16), plotd=False)
-        XXX, _ = to1D(compared, length=lg)
-        print(clf.predict(XXX))
+    def anonymous(nfiles, name=True, debug=True):
+        # Traiement des fichiers
+        if name:
+            compared = compare(folder=folder_test, files=nfiles, time_res=(options["time_res"] if "time_res" in options else 0), amp_res=(options["amp_res"] if "amp_res" in options else 0), fmin=(options["fmin"] if "fmin" in options else 0), fmax=(options["fmax"] if "fmax" in options else 0), nb_filters=(options["nb_filters"] if "nb_filters" in options else 0), q=(options["q"] if "q" in options else 0), n=(options["n"] if "n" in options else 0), fcs=(options["fcs"] if "fcs" in options else []), filters=(options["filters"] if "filters" in options else []), filters_fq=(options["filters_fq"] if "filters_fq" in options else []), drc_tl=(options["drc_tl"] if "drc_tl" in options else False), drc_th=(options["drc_th"] if "drc_th" in options else False), drc_r=(options["drc_r"] if "drc_r" in options else False), formants=(options["formants"] if "formants" in options else []), format=(options["format"] if "format" in options else ".wav"), adc_res=(options["adc_res"] if "adc_res" in options else 16), plotd=False)
+            XXX, _ = to1D(compared, length=lg)
+        else:
+            XXX, _ = to1D([nfiles], length=lg)
+        # Prédiction
+        result = clf.predict(XXX)
+        # Debug
+        if debug:
+            print(result)
+        return result
 
-    return lambda nfiles: anonymous(nfiles)
+    return lambda nfiles, name=True, debug=True: anonymous(nfiles, name, debug)

@@ -1,4 +1,4 @@
-def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25, adc_res=16):
+def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, formants=[], drc_tl=False, drc_th=False, drc_r=False, duration=0.25, adc_res=16, predict=False):
     """
     Commence un enregistrement vocal live
     Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable
@@ -14,11 +14,12 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
     > [drc_th] : Seuil haut du compresseur audio
     > [drc_r] : Ratio du compresseur audio
     > [adc_res] : Résolution du CAN
+    > [predict] : Perceptron multicouche
     """
     # Durée de l'enregistrement
     duration = 0.1
     # Taille des blocs enregistrés
-    chunk_size = 1024
+    chunk_size = 4096
 
     # Initialisation
     plt.ion()
@@ -39,16 +40,21 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
         frames = np.array([])
         while True:
             # Enregistrement
-            for i in range(0, int(fs / chunk_size * duration)):
+            for i in range(0, int(np.ceil(fs / chunk_size * duration))):
                 data = stream.read(chunk_size)
                 got = np.fromstring(data, dtype=np.int16)/32768
                 frames = np.concatenate([frames, got])
-            frames = frames[-int(fs * last):]
+            frames = frames[-int(np.ceil(fs * last)):]
             # Traitement
             ax[0].clear() ; ax[1].clear()
-            rsegs, _, _ = compute(file=frames, fs=fs, filters=filters, filters_fq=filters_fq, time_res=time_res, amp_res=amp_res, ax=ax, dbfs=False, drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r, adc_res=adc_res)
+            if len(frames) == 0:
+                continue
+            rsegs, _, rseqs = compute(file=frames, fs=fs, filters=filters, filters_fq=filters_fq, time_res=time_res, amp_res=amp_res, ax=ax, dbfs=False, drc_tl=drc_tl, drc_th=drc_th, drc_r=drc_r, adc_res=adc_res)
             if len(formants) > 0:
                 plot_formants(np.array(formants, copy=True).tolist(), rfreqs, ax[1], rsegs)
+            # Prédiction
+            if predict:
+                f.suptitle(predict(rseqs, name=False, debug=False)[0], fontsize=30)
             # Affichage
             f.canvas.draw()
 
@@ -59,6 +65,7 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
         stream.close()
         p.terminate()
         clear_output()
+        plt.close()
         print("Terminé !")
         quit
     return
