@@ -74,7 +74,8 @@ def compute(file, fs=0, time_res=0, amp_res=0, fmin=0, fmax=0, fcs=[], nb_filter
         y = drc(y, tl=drc_tl, th=drc_th, ratio=drc_r)
 
     # Convertisseur analogique numérique
-    y = adc(y, adc_res)
+    if adc_res < 16:
+        y = adc(y, adc_res)
 
     # Filtrage
     if ((nb_filters > 0) or (len(fcs) > 0)):

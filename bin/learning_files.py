@@ -16,4 +16,11 @@ def learning_files(files, files_i, files_v="auto"):
         y = y + ([names[-1]] * files_i[i])
         for j in range(1, files_i[i]+1):
             ffiles.append(files[i].format(i=j))
-    return ffiles, list(set(names)), y
+
+    # Retrieve unique names
+    unames = []
+    for i in names:
+        if i not in unames:
+            unames.append(i)
+
+    return ffiles, unames, y
