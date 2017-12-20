@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from ipywidgets import FloatProgress
 from IPython.display import display
 from learning import learning
+from scipy.interpolate import interp1d
 
 def benchmark(param, param_range=[0, 1, 0.1], learn=[], learn_i=[], test=[], test_i=[], learn_v="auto", test_v="auto", options={}, folder_learn="src/learning/", folder_test="src/tests/", neurons=(100), curve="interpolate"):
     """
