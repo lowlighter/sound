@@ -102,3 +102,4 @@ ENV/
 Tests.ipynb
 src/output.wav
 src/sine.wav
+src/record.wav
