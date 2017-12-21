@@ -13,6 +13,11 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
     Commence un enregistrement vocal live (pyaudio doit être installé sur la machine).
     Afin d'éviter les calculs liés à la création des filtres, il est nécessaire de générer les filtres au préalable.
 
+    Cette fonction comporte deux versions :
+    * La première traite les données à la volée chunk par chunk, mais cela semble pas fonctionnel en l'état à cause de la
+    latence induite par les temps de calculs et d'affichage (du multiprocessing devrait être implémenté).
+    * La seconde version écoute un temps donné puis écrit les données dans un nouveau fichier, réutilisé par la suite pour les caluls.
+
     :param fs: Fréquence d'échantillonage (uniquement si une liste d'amplitude est donnée pour le paramètre file)
     :type fs: number
     :param adc_res: Résolution du convertisseur analogique numérique
@@ -39,7 +44,7 @@ def live_record(filters, filters_fq, time_res, amp_res, fs = 48000, last=4, form
     :type duration: number
     :param predict: Perceptron multicouche déjà configuré
     :type predict: function (sortie de la fonction learning)
-    :param version: Version de la fonction à utiliser (la version 1 ne semble pas fonctionnelle en l'état à cause de la latence induite par les temps de calculs)
+    :param version: Version de la fonction à utiliser
     :type version: string ("1" ou "2")
     """
     if version == "1":
