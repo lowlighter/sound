@@ -21,7 +21,7 @@ def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=False, debug=F
     :param fcs: Liste de fréquences centrales personnalisées (dans ce cas, les paramètres fmin, fmax, nb_filters et scale sont ignorés)
     :type fcs: number[]
     :param scale: Echelle à utiliser pour la génération des filtres
-    :type scale: string ("log" ou "mel")
+    :type scale: string ("log", "mel" ou "linear")
     :param debug: Si actif, affiche les informations sur les filtres générés
     :type debug: bool
     :return: Liste des filtres générés et listes d'objets contenant "fc", "fl" et "fh" indiquant les fréquences caractéristiques du filtre associé
@@ -42,6 +42,8 @@ def gen_filters(q, n, fs, nb_filters=12, fmin=20, fmax=20000, fcs=False, debug=F
                     if (fcs[-1] > fmax):
                         fcs.pop()
                     break
+        elif scale == "linear":
+            fcs = np.linspace(fmin, fmax, nb_filters)
         else:
             fcs = np.geomspace(fmin, fmax, nb_filters)
     # Création des filtres
